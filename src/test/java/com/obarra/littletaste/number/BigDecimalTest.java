@@ -7,13 +7,13 @@ import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class BigDecimalUtilTest {
+public class BigDecimalTest {
 
     @Test
     public void add() {
         BigDecimal number = new BigDecimal("0.3");
         BigDecimal otherNumber = new BigDecimal("0.7");
-        BigDecimal result = BigDecimalUtil.add(number, otherNumber);
+        BigDecimal result = number.add(otherNumber);
         BigDecimal expectedResult = new BigDecimal("1.0");
         assertEquals(expectedResult, result);
     }
@@ -22,7 +22,7 @@ public class BigDecimalUtilTest {
     public void addOther() {
         BigDecimal number = new BigDecimal("0.3");
         BigDecimal otherNumber = new BigDecimal("0.7");
-        BigDecimal result = BigDecimalUtil.add(number, otherNumber);
+        BigDecimal result = number.add(otherNumber);
         BigDecimal expectedResult = new BigDecimal("1.00");
         assertNotEquals(expectedResult, result);
     }
@@ -32,7 +32,7 @@ public class BigDecimalUtilTest {
     public void rest() {
         BigDecimal number = new BigDecimal("1000.0");
         BigDecimal otherNumber = new BigDecimal("0.001");
-        BigDecimal result = BigDecimalUtil.rest(number, otherNumber);
+        BigDecimal result = number.subtract(otherNumber);
         BigDecimal expectedResult = new BigDecimal("999.999");
         assertEquals(expectedResult, result);
     }
@@ -41,7 +41,7 @@ public class BigDecimalUtilTest {
     public void divide() {
         BigDecimal dividend = new BigDecimal("1");
         BigDecimal divisor = new BigDecimal("3");
-        BigDecimal result = BigDecimalUtil.divide(dividend, divisor);
+        BigDecimal result = dividend.divide(divisor);
         BigDecimal expectedResult = new BigDecimal("999.999");
         assertEquals(expectedResult, result);
     }
