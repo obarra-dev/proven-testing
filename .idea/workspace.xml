@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb1866ee-5fd2-4c57-9cb3-53627affb20d" name="Default Changelist" comment="" />
+    <list default="true" id="cb1866ee-5fd2-4c57-9cb3-53627affb20d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.obarra.littletaste.number.BigDecimalUtilTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.obarra.littletaste.number.BigDecimalUtilTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.obarra.littletaste.number.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.obarra.littletaste.number.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.obarra.littletaste.number.BigDecimalUtilTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.obarra.littletaste.number.BigDecimalUtilTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -99,17 +109,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/obarra/littletaste/number/BigDecimalUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="19" />
+            <state relative-caret-position="130">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/obarra/littletaste/number/BigDecimalUtilTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/obarra/littletaste/number/BigDecimalTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="48" column="9" lean-forward="true" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+            <state relative-caret-position="-118">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,14 +138,17 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/obarra/littletaste/number/BigDecimaUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/obarra/littletaste/number/BigDecimalUtil.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/obarra/littletaste/number/BigDecimalTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/test/java/com/obarra/littletaste/number/BigDecimalUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/obarra/littletaste/number/BigDecimalTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/obarra/littletaste/number/BigDecimalUtil.java" />
       </list>
     </option>
   </component>
@@ -156,6 +169,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -167,6 +181,27 @@
               <item name="littletaste" type="b2602c69:ProjectViewProjectNode" />
               <item name="littletaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="littletaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="littletaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="littletaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="littletaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="littletaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="littletaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="number" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="littletaste" type="b2602c69:ProjectViewProjectNode" />
@@ -197,10 +232,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
@@ -230,7 +265,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.BigDecimalUtilTest">
+  <component name="RunManager" selected="Gradle.BigDecimalUtilTest.add">
     <configuration name="BigDecimalUtilTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -330,8 +365,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.BigDecimalUtilTest" />
         <item itemvalue="Gradle.BigDecimalUtilTest.add" />
+        <item itemvalue="Gradle.BigDecimalUtilTest" />
         <item itemvalue="Gradle.littletaste [test]" />
         <item itemvalue="Gradle.littletaste [clean]" />
         <item itemvalue="Gradle.littletaste [build]" />
@@ -350,13 +385,11 @@
       <updated>1560093467939</updated>
       <workItem from="1560093472275" duration="1322000" />
       <workItem from="1560095393188" duration="6248000" />
+      <workItem from="1560127192847" duration="541000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BigDecimalTest_add - 2019.06.09 at 13h 58m 56s.xml">
-      <configuration name="BigDecimalTest.add" configurationId="GradleRunConfiguration" />
-    </history-entry>
     <history-entry file="BigDecimalUtilTest_add - 2019.06.09 at 14h 34m 13s.xml">
       <configuration name="BigDecimalUtilTest.add" configurationId="GradleRunConfiguration" />
     </history-entry>
@@ -384,9 +417,12 @@
     <history-entry file="BigDecimalUtilTest - 2019.06.09 at 15h 04m 34s.xml">
       <configuration name="BigDecimalUtilTest" configurationId="GradleRunConfiguration" />
     </history-entry>
+    <history-entry file="BigDecimalUtilTest_add - 2019.06.09 at 21h 41m 52s.xml">
+      <configuration name="BigDecimalUtilTest.add" configurationId="GradleRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7570000" />
+    <option name="totallyTimeSpent" value="8111000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -401,7 +437,7 @@
     <frame x="0" y="20" width="1366" height="748" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.25263953" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.25641027" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -411,7 +447,7 @@
       <window_info anchor="bottom" id="SonarLint" order="0" weight="0.318038" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.32911393" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3280507" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39873418" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -428,7 +464,7 @@
       <window_info anchor="right" id="Maven" order="3" weight="0.3295626" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" weight="0.3295626" />
+      <window_info anchor="right" id="Gradle" order="6" visible="true" weight="0.3295626" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
@@ -457,20 +493,11 @@
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/obarra/littletaste/number/BigDecimalTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/obarra/littletaste/number/BigDecimalTest.java" />
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/a9df56f0d77553e469fbcc0b5cb2e3b01d3b24fe/junit-jupiter-api-5.4.2-sources.jar!/org/junit/jupiter/api/Assertions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/obarra/littletaste/number/BigDecimalUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="19" />
+        <state relative-caret-position="133">
+          <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -481,17 +508,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/a9df56f0d77553e469fbcc0b5cb2e3b01d3b24fe/junit-jupiter-api-5.4.2-sources.jar!/org/junit/jupiter/api/Assertions.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/obarra/littletaste/number/BigDecimalUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+        <state relative-caret-position="130">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/obarra/littletaste/number/BigDecimalUtilTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/obarra/littletaste/number/BigDecimalTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="48" column="9" lean-forward="true" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        <state relative-caret-position="-118">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
