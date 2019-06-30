@@ -48,5 +48,30 @@ public class BigDecimalTest {
 
     @Test
     public void multiply() {
+        BigDecimal number = new BigDecimal("10.00");
+        BigDecimal tax = new BigDecimal("0.0825");
+        BigDecimal result = number.multiply(tax);
+        BigDecimal expectedResult = new BigDecimal("0.825000");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void dder(){
+        BigDecimal number = new BigDecimal(0.33);
+        //330000000000000015543122344752191565930843353271484375
+        assertNotEquals( "0.33", number.toString());
+    }
+
+    @Test
+    public void ddser(){
+        BigDecimal number = new BigDecimal("0.33");
+        assertEquals("0.33", number.toString());
+    }
+
+    @Test
+    public void roundingCeiling(){
+        BigDecimal number = new BigDecimal("0.333");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_CEILING);
+        assertEquals("0.33", result);
     }
 }
