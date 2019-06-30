@@ -165,7 +165,7 @@ public class BigDecimalTest {
      * Should round towards negative infinity.
      */
     @Test
-    public void roundFloorPositive(){
+    public void roundFloorWhenTheNumberIsPositive(){
         BigDecimal number = new BigDecimal("0.333");
         BigDecimal result = number.setScale(2, BigDecimal.ROUND_FLOOR);
         BigDecimal expectedResult = new BigDecimal("0.33");
@@ -179,7 +179,7 @@ public class BigDecimalTest {
      * Should round towards negative infinity.
      */
     @Test
-    public void roundFloorNegative(){
+    public void roundFloorWhenTheNumberIsNegative(){
         BigDecimal number = new BigDecimal("-0.333");
         BigDecimal result = number.setScale(2, BigDecimal.ROUND_FLOOR);
         BigDecimal expectedResult = new BigDecimal("-0.34");
@@ -193,7 +193,7 @@ public class BigDecimalTest {
      * Should round towards zero.
      */
     @Test
-    public void roundDownTowardsZeroPositive(){
+    public void roundDownWhenTheNumberISPositive(){
         BigDecimal number = new BigDecimal("0.333");
         BigDecimal result = number.setScale(2, BigDecimal.ROUND_DOWN);
         BigDecimal expectedResult = new BigDecimal("0.33");
@@ -207,13 +207,41 @@ public class BigDecimalTest {
      * Should round towards zero.
      */
     @Test
-    public void roundDownTowardsZeroNegative(){
+    public void roundDownWhenTheNumberIsNegative(){
         BigDecimal number = new BigDecimal("-0.333");
         BigDecimal result = number.setScale(2, BigDecimal.ROUND_DOWN);
         BigDecimal expectedResult = new BigDecimal("-0.33");
         assertEquals(expectedResult, result);
     }
 
+
+    /**
+     * Scenario:
+     * When uses rounding mode ROUND_UP in positive number
+     * Expectation:
+     * Should round away from zero.
+     */
+    @Test
+    public void roundUpWhenTheNumberIsPositive(){
+        BigDecimal number = new BigDecimal("0.333");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_UP);
+        BigDecimal expectedResult = new BigDecimal("0.34");
+        assertEquals(expectedResult, result);
+    }
+
+    /**
+     * Scenario:
+     * When uses rounding mode ROUND_UP in negative number
+     * Expectation:
+     * Should round away from zero.
+     */
+    @Test
+    public void roundDownTowardsZeroNegative(){
+        BigDecimal number = new BigDecimal("-0.333");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_UP);
+        BigDecimal expectedResult = new BigDecimal("-0.34");
+        assertEquals(expectedResult, result);
+    }
     /**
      * Scenario:
      * When uses rounding mode ROUND_HALF_UP and the last decimal is greater or equals than 5.
