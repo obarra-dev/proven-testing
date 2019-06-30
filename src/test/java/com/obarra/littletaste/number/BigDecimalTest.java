@@ -69,9 +69,111 @@ public class BigDecimalTest {
     }
 
     @Test
-    public void roundingCeiling(){
+    public void roundingCeilingPositive(){
         BigDecimal number = new BigDecimal("0.333");
         BigDecimal result = number.setScale(2, BigDecimal.ROUND_CEILING);
-        assertEquals("0.33", result);
+        BigDecimal expectedResult = new BigDecimal("0.34");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void roundingCeilingNegative(){
+        BigDecimal number = new BigDecimal("-0.333");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_CEILING);
+        BigDecimal expectedResult = new BigDecimal("-0.33");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void roundingFloorPositive(){
+        BigDecimal number = new BigDecimal("0.333");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_FLOOR);
+        BigDecimal expectedResult = new BigDecimal("0.33");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void roundingFloorNegative(){
+        BigDecimal number = new BigDecimal("-0.333");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_FLOOR);
+        BigDecimal expectedResult = new BigDecimal("-0.34");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void roundingDownTowardsZeroPositive(){
+        BigDecimal number = new BigDecimal("0.333");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_DOWN);
+        BigDecimal expectedResult = new BigDecimal("0.33");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void roundingDownTowardsZeroNegative(){
+        BigDecimal number = new BigDecimal("-0.333");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_DOWN);
+        BigDecimal expectedResult = new BigDecimal("-0.33");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void roundingHalfUp(){
+        BigDecimal number = new BigDecimal("0.745");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal expectedResult = new BigDecimal("0.75");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void roundingHalfUpd(){
+        BigDecimal number = new BigDecimal("0.744");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal expectedResult = new BigDecimal("0.74");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void roundingHalfDown(){
+        BigDecimal number = new BigDecimal("0.745");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_HALF_DOWN);
+        BigDecimal expectedResult = new BigDecimal("0.74");
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void roundingHalfDownd(){
+        BigDecimal number = new BigDecimal("0.746");
+        BigDecimal result = number.setScale(2, BigDecimal.ROUND_HALF_DOWN);
+        BigDecimal expectedResult = new BigDecimal("0.75");
+        assertEquals(expectedResult, result);
+    }
+
+    /**
+     * digit left of 5 is even, so round down
+     */
+    @Test
+    public void roundingHalfEven(){
+        BigDecimal number = new BigDecimal("1.5");
+        BigDecimal result = number.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        BigDecimal expectedResult = new BigDecimal("2");
+        assertEquals(expectedResult, result);
+    }
+
+    /**
+     * digit left of 5 is odd, so round up
+     */
+    @Test
+    public void roundingHalfEvend(){
+        BigDecimal number = new BigDecimal("2.5");
+        BigDecimal result = number.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        BigDecimal expectedResult = new BigDecimal("2");
+        assertEquals(expectedResult, result);
+    }
+
+
+    @Test(expected = ArithmeticException.class)
+    public void roundingUnnecessary(){
+        BigDecimal number = new BigDecimal("2.5");
+        number.setScale(0, BigDecimal.ROUND_UNNECESSARY);
     }
 }
