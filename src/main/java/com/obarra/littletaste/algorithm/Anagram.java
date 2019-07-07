@@ -11,6 +11,28 @@ import java.util.Map;
 public class Anagram {
 
     /**
+     * The time complexity of this algorithm is O(n). If we start at a value a of O and XOR
+     * all the characters of both strings, we should return an end value of o if they are anagrams
+     * @param word
+     * @param otherWord
+     * @return
+     */
+    public static Boolean areAnagramsMethodBitManipulation(final String word, final String otherWord){
+        if(word.length() != otherWord.length()){
+            return false;
+        }
+
+        int result = 0;
+
+        for (int i = 0; i < word.length(); i++){
+            result = result ^ word.charAt(i);
+            result = result ^ otherWord.charAt(i);
+        }
+
+        return result == 0;
+    }
+
+    /**
      * The time complexity of this algorithm is maybe O(n) or O(log n).
      * This algorithm will have the same  order of magnitude as that of sorting method.
      * @param word
@@ -105,5 +127,4 @@ public class Anagram {
 
         return areAnagrams;
     }
-
 }

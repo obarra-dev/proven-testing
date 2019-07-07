@@ -66,6 +66,25 @@ public class AnagramTest {
         Assert.assertEquals(true, Anagram.areAnagramsMethodCheckingOff("BAC D", "ABCD "));
     }
 
+    @Test
+    public void areAnagramsMethodBitManipulationWhenAreDifferentForOneLetter() {
+        Assert.assertEquals(false, Anagram.areAnagramsMethodBitManipulation("mmmmmmmaaaaao", "mmmmmmmaaaaaa"));
+    }
+
+    @Test
+    public void areAnagramsMethodBitManipulationWhenAreOKAnagrams() {
+        Assert.assertEquals(true, Anagram.areAnagramsMethodBitManipulation("mariela", "lamarie"));
+    }
+
+    @Test
+    public void areAnagramsMethodBitManipulationWhenTheWordsHasTwoLetters() {
+        Assert.assertEquals(true, Anagram.areAnagramsMethodBitManipulation("go", "og"));
+    }
+
+    @Test
+    public void areAnagramsMethodBitManipulationWhenTheWordHasSpace() {
+        Assert.assertEquals(true, Anagram.areAnagramsMethodBitManipulation("BAC D", "ABCD "));
+    }
 
 
 }
