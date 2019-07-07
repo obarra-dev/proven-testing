@@ -3,8 +3,6 @@ package com.obarra.littletaste.algorithm;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class AnagramTest {
 
     @Test
@@ -47,6 +45,27 @@ public class AnagramTest {
     public void areAnagramsMethodSortAndCompareWhenTheWordHasSpace() {
         Assert.assertEquals(true, Anagram.areAnagramsMethodSortAndCompare("BAC D", "ABCD "));
     }
+
+    @Test
+    public void areAnagramsMethodCheckingOffWhenAreDifferentForOneLetter() {
+        Assert.assertEquals(false, Anagram.areAnagramsMethodCheckingOff("mmmmmmmaaaaao", "mmmmmmmaaaaaa"));
+    }
+
+    @Test
+    public void areAnagramsMethodCheckingOffWhenAreOKAnagrams() {
+        Assert.assertEquals(true, Anagram.areAnagramsMethodCheckingOff("mariela", "lamarie"));
+    }
+
+    @Test
+    public void areAnagramsMethodCheckingOffWhenTheWordsHasTwoLetters() {
+        Assert.assertEquals(true, Anagram.areAnagramsMethodCheckingOff("go", "og"));
+    }
+
+    @Test
+    public void areAnagramsMethodCheckingOffWhenTheWordHasSpace() {
+        Assert.assertEquals(true, Anagram.areAnagramsMethodCheckingOff("BAC D", "ABCD "));
+    }
+
 
 
 }

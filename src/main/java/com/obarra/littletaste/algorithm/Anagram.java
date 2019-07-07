@@ -73,4 +73,37 @@ public class Anagram {
 
         return true;
     }
+
+    /**
+     * The time complexity of this algorithm is O(n^2).
+     * @param word
+     * @param otherWord
+     * @return
+     */
+    public static Boolean areAnagramsMethodCheckingOff(final String word, final String otherWord){
+        if(word.length() != otherWord.length()){
+            return false;
+        }
+
+        char[] other = otherWord.toCharArray();
+        boolean areAnagrams = false;
+        for (int i = 0; i < word.length(); i++){
+            for (int j = 0; j < other.length; j++){
+                if(word.charAt(i) == other[j]){
+                    other[j] = '\u0000';
+                    areAnagrams = true;
+                    break;
+                }
+
+                areAnagrams = false;
+            }
+
+            if(!areAnagrams){
+                return areAnagrams;
+            }
+        }
+
+        return areAnagrams;
+    }
+
 }
