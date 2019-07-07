@@ -13,9 +13,9 @@ public class Anagram {
     /**
      * The time complexity of this algorithm is O(n). If we start at a value a of O and XOR
      * all the characters of both strings, we should return an end value of o if they are anagrams
-     * @param word
-     * @param otherWord
-     * @return
+     * @param word The first word to analise
+     * @param otherWord The first word to analise
+     * @return true if the two words are anagrams or false if they are not anagrams
      */
     public static Boolean areAnagramsMethodBitManipulation(final String word, final String otherWord){
         if(word.length() != otherWord.length()){
@@ -35,9 +35,9 @@ public class Anagram {
     /**
      * The time complexity of this algorithm is maybe O(n) or O(log n).
      * This algorithm will have the same  order of magnitude as that of sorting method.
-     * @param word
-     * @param otherWord
-     * @return
+     * @param word The first word to analise
+     * @param otherWord The first word to analise
+     * @return true if the two words are anagrams or false if they are not anagrams
      */
     public static Boolean areAnagramsMethodSortAndCompare(final String word, final String otherWord){
         if(word.length() != otherWord.length()){
@@ -55,9 +55,9 @@ public class Anagram {
 
     /**
      * The time complexity of this algorithm is O(log n). This algorithm sacrificed space in order to gain time.
-     * @param word
-     * @param otherWord
-     * @return
+     * @param word The first word to analise
+     * @param otherWord The first word to analise
+     * @return true if the two words are anagrams or false if they are not anagrams
      */
     public static Boolean areAnagramsMethodCountAndCompare(final String word, final String otherWord){
         if(word.length() != otherWord.length()){
@@ -65,15 +65,9 @@ public class Anagram {
         }
 
         Map<Integer, Integer> counterLetters = new HashMap<>();
-        for (int i = 0; i< word.length(); i++){
-            int indexLetter = word.charAt(i);
-            Integer counter = counterLetters.get(indexLetter);
 
-            if(counter == null){
-                counterLetters.put(indexLetter, 1);
-            }else{
-                counterLetters.put(indexLetter, counter+1);
-            }
+        for (int i = 0; i< word.length(); i++){
+            counterLetters.merge((int)word.charAt(i), 1, (v1, v2) -> v1 + v2);
         }
 
         for (int i = 0; i< otherWord.length(); i++){
@@ -87,20 +81,14 @@ public class Anagram {
             }
         }
 
-        for (Map.Entry<Integer, Integer> entry: counterLetters.entrySet()){
-            if(entry.getValue()!= 0){
-                return false;
-            }
-        }
-
-        return true;
+        return counterLetters.values().stream().noneMatch(v -> v !=0 );
     }
 
     /**
      * The time complexity of this algorithm is O(n^2).
-     * @param word
-     * @param otherWord
-     * @return
+     * @param word The first word to analise
+     * @param otherWord The first word to analise
+     * @return true if the two words are anagrams or false if they are not anagrams
      */
     public static Boolean areAnagramsMethodCheckingOff(final String word, final String otherWord){
         if(word.length() != otherWord.length()){
