@@ -1,26 +1,14 @@
 package com.obarra.littletaste.util;
 
 
-public class FieldUtil {
+import java.util.Objects;
 
-    public static boolean compareLongs(final Long field, final Long otherField){
-        return compare(field, otherField);
-    }
+public class FieldUtil {
 
     public static boolean compareStrings(final String field, final String otherField){
         String fieldNormalized = getNormalizeString(field);
         String otherFieldNormalized = getNormalizeString(otherField);
-        return compare(fieldNormalized, otherFieldNormalized);
-    }
-
-    private static boolean compare(final Object object, final Object otherObject){
-        if(object == null && otherObject == null){
-            return true;
-        }
-        if(object == null || otherObject == null){
-            return false;
-        }
-        return object.equals(otherObject);
+        return Objects.equals(fieldNormalized, otherFieldNormalized);
     }
 
     public static String getNormalizeString(final String field){

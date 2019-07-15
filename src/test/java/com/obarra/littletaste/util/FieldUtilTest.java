@@ -2,6 +2,8 @@ package com.obarra.littletaste.util;
 
 import org.junit.Test;
 
+import java.util.Objects;
+
 import static org.junit.Assert.*;
 
 public class FieldUtilTest {
@@ -14,28 +16,28 @@ public class FieldUtilTest {
 
     @Test
     public void compareLongsWhenAreNulls() {
-        assertTrue(FieldUtil.compareLongs(null, null));
+        assertTrue(Objects.equals(null, null));
     }
 
     @Test
     public void compareLongsWhenOtherIsNumberAndOtherIsNUll() {
-        assertFalse(FieldUtil.compareLongs(fieldLong, null));
+        assertFalse(Objects.equals(fieldLong, null));
     }
 
     @Test
     public void compareLongsWhenOtherIsNullAndOtherIsNumber() {
-        assertFalse(FieldUtil.compareLongs(null, fieldLong));
+        assertFalse(Objects.equals(null, fieldLong));
     }
 
     @Test
     public void compareLongsWhenAreNumbersEquals() {
         Long sameField = new Long(fieldLong);
-        assertTrue(FieldUtil.compareLongs(fieldLong, sameField));
+        assertTrue(Objects.equals(fieldLong, sameField));
     }
 
     @Test
     public void compareLongsWhenAreNumbersDifferent() {
-        assertFalse(FieldUtil.compareLongs(fieldLong, otherFieldLong));
+        assertFalse(Objects.equals(fieldLong, otherFieldLong));
     }
 
     @Test
