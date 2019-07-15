@@ -29,7 +29,8 @@ public class FieldUtilTest {
 
     @Test
     public void compareLongsWhenAreNumbersEquals() {
-        assertTrue(FieldUtil.compareLongs(fieldLong, fieldLong));
+        Long sameField = new Long(fieldLong);
+        assertTrue(FieldUtil.compareLongs(fieldLong, sameField));
     }
 
     @Test
@@ -54,7 +55,8 @@ public class FieldUtilTest {
 
     @Test
     public void compareStringsWhenAreNumbersEquals() {
-        assertTrue(FieldUtil.compareStrings(fieldString, fieldString));
+        String sameString = new String(fieldString);
+        assertTrue(FieldUtil.compareStrings(fieldString, sameString));
     }
 
     @Test
