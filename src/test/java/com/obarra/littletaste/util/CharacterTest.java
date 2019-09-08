@@ -27,6 +27,6 @@ public class CharacterTest {
 
     @Test
     public void is(){
-        Assert.assertTrue(Character.isJavaIdentifierPart('9'));
+        while (true);
     }
 }
