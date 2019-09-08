@@ -4,7 +4,7 @@ public class Histogram {
 
     public static void printHistogramHorizontal(final int[] values){
         for(int i = 0; i < values.length; i++){
-            System.out.print((i+1) +"|");
+            System.out.print((i+1) +"| " + values[i] + " | ");
             for(int j = 0; j < values[i]; j++){
                 System.out.print(" m ");
             }
