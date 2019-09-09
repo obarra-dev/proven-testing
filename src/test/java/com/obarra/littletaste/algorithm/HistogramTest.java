@@ -7,6 +7,12 @@ import static org.junit.Assert.*;
 public class HistogramTest {
 
     @Test
+    public void test() {
+
+        Histogram.print(5);
+    }
+
+    @Test
     public void printHistogramHorizontal() {
         int[] values = {1, 2, 1, 9};
         Histogram.printHistogramHorizontal(values);

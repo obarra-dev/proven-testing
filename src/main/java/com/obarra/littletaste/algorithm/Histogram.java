@@ -12,6 +12,28 @@ public class Histogram {
         }
     }
 
+    public static void print(int n){
+        if(n < 1){
+            System.out.println("ERROR");
+            return;
+        }
+
+        char[][] matrix = new char[n][n];
+
+        for(int i=0; i<n; i++){
+            matrix[i][i] = 'X';
+            matrix[i][n - i -1] = 'X';
+        }
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                System.out.print(matrix[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+
     public static void printHistogramRowByRow(final int[] values){
         int maximumValue = getMaximumValue(values);
         for(int j = maximumValue; j > 0; j--){
