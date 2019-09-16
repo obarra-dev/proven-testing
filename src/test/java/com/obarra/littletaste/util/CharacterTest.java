@@ -24,9 +24,4 @@ public class CharacterTest {
     public void isJavaIdentifierStartWhenChIsCurrencySymbol(){
         Assert.assertTrue(Character.isJavaIdentifierStart('$'));
     }
-
-    @Test
-    public void is(){
-        while (true);
-    }
 }
