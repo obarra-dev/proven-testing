@@ -1,8 +1,8 @@
-package com.obarra.littletaste.pattern.decorator;
+package com.obarra.littletaste.pattern.structural.decorator;
 
-import com.obarra.littletaste.pattern.decorator.legacy.AXACalculator;
-import com.obarra.littletaste.pattern.decorator.legacy.InsuranceCalculator;
-import com.obarra.littletaste.pattern.decorator.legacy.VillanuevaCalculator;
+import com.obarra.littletaste.pattern.structural.decorator.legacy.AXACalculator;
+import com.obarra.littletaste.pattern.structural.decorator.legacy.InsuranceCalculator;
+import com.obarra.littletaste.pattern.structural.decorator.legacy.VillanuevaCalculator;
 
 public class DemoDecorator {
     public static double calculateQuotationOfAXA(double value){

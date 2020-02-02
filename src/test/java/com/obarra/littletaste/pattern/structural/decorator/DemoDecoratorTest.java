@@ -1,4 +1,4 @@
-package com.obarra.littletaste.pattern.decorator;
+package com.obarra.littletaste.pattern.structural.decorator;
 
 import org.junit.Test;
 
