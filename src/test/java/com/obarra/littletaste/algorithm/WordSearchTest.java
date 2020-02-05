@@ -16,4 +16,23 @@ public class WordSearchTest {
         char[][] m = {{'o','m','a','r'},{'o','m','a','r'},{'o','m','a','r'},{'o','m','a','r'}};
         WordSearch.getIndexesOfMatchedWord(m, "ramo");
     }
+
+    @Test
+    public void getIndexesOfMatchedWordStrategyCheckCellsAndEightDirections() {
+        char matrix[][] = {{'o','m','a'},{'o','m','a'},{'o','m','a'}};;
+        WordSearch.getIndexesStrategyCheckCellsAndEightDirections(matrix, "oma");
+    }
+    @Test
+    public void getIndexesOfMatchedWordStrategyCheckCellsAndEightDirectionsDER() {
+        char matrix[][] = {{'o','m','a','r'},{'o','m','a','d'},{'o','m','a','f'}};;
+        WordSearch.getIndexesStrategyCheckCellsAndEightDirections(matrix, "omar");
+    }
+
+    @Test
+    public void getIndexesOfMatchedWordStrategyCheckCellsAndEightDirectionsDERf() {
+        char matrix[][] = {{'o','m','a','r'},{'o','m','a','d'},{'o','m','a','f'}};;
+        WordSearch.getIndexesStrategyCheckCellsAndEightDirections(matrix, "aaa");
+    }
+
+
 }
