@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.dao.mapper;
 
 import com.example.springboot.poc.entity.ExampleEntity;
@@ -151,4 +150,3 @@ public class ExampleInfoMapperTest {
         verify(resultSet).getString(anyInt());
     }
 }
-```

@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.converter;
 
 import com.example.springboot.poc.dto.ExampleInfoResponseDTO;
@@ -19,4 +18,3 @@ public class  ExampleInfoConverterImpl implements ExampleInfoConverter<ExampleEn
         return exampleInfoResponseDTO;
     }
 }
-```

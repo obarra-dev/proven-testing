@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.dao;
 
 import com.example.springboot.poc.dao.mapper.ExampleInfoMapper;
@@ -70,4 +69,3 @@ public class ExampleDAOImpl implements ExampleDAO {
         return parameters;
     }
 }
-```

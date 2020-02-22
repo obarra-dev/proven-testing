@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.message;
 
 /**
@@ -33,4 +32,3 @@ public enum ExampleMessage {
         return message;
     }
 }
-```

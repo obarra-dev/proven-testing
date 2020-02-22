@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.entity;
 
 /**
@@ -58,4 +57,3 @@ public class ExampleEntity {
         this.column3 = column3;
     }
 }
-```

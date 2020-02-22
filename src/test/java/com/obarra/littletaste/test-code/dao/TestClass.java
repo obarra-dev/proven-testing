@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.dao;
 
 import com.example.springboot.poc.dao.mapper.ExampleInfoMapper;
@@ -189,4 +188,3 @@ public class ExampleDAOImplTest {
         verify(jdbcTemplate).query(anyString(), any(Object[].class), any(ExampleInfoMapper.class));
     }
 }
-```

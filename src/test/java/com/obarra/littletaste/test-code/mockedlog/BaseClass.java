@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.service;
 
 import com.example.springboot.poc.converter.ExampleInfoConverter;
@@ -71,4 +70,3 @@ public class ExampleService {
         return exampleInfoResponseDTOList.get(0);
     }
 }
-```

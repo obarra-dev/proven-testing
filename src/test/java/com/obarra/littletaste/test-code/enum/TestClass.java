@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.message;
 
 import org.junit.Test;
@@ -37,4 +36,3 @@ public class ExampleMessageTest {
         assertThat(ExampleMessage.EXAMPLE_INFO_PARAMETER_3_FORMAT_SHOULD_BE_YYYYMMDD.getMessage(), equalTo("The parameter 3 should be in YYYYMMDD format"));
     }
 }
-```

@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.entity;
 
 import org.junit.Before;
@@ -83,4 +82,3 @@ public class ExampleEntityTest {
         assertThat(exampleEntity.getColumn3(), equalTo("someColumn3Value"));
     }
 }
-```

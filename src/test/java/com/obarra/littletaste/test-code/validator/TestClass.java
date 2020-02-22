@@ -1,4 +1,3 @@
-```java
 package com.example.springboot.poc.validator;
 
 import com.example.springboot.poc.dto.ExampleInfoRequestDTO;
@@ -244,4 +243,3 @@ public class ExampleInfoRequestDTOValidatorTest {
         exampleInfoRequestDTOValidator.validate(exampleInfoRequestDTO);
     }
 }
-```
