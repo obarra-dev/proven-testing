@@ -31,7 +31,7 @@ public class StreamTest {
         StringBuilder stringBuilder = new StringBuilder();
         Stream.of("a", "c", "b", "e")
                 .sorted()
-                .forEach(s -> stringBuilder.append(s));
+                .forEach(stringBuilder::append);
 
         Assert.assertEquals("abce", stringBuilder.toString());
     }
@@ -39,7 +39,8 @@ public class StreamTest {
     /**
      * Se ejecuto de forma secuencial porque el origen del Stream es List el cual es por definicion ordenada
      * El collecto deberia tener como minimo la caracteristica UNORDENRED
-     * Al no tener esta caractica indica que el resultado del joinig depende del orden de los elementos por lo tanto no se puede ejecutar de forma paralela
+     * Al no tener esta caractica indica que el resultado del joinig depende del orden de los elementos
+     * por lo tanto no se puede ejecutar de forma paralela
      */
     @Test
     public void parallelStream(){
