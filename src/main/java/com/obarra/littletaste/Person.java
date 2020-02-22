@@ -1,5 +1,6 @@
 package com.obarra.littletaste;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class Person {
@@ -7,6 +8,32 @@ public class Person {
     public String lastName;
     public String secondLastName;
     public Optional<String> firstNameCanBeNull;
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", secondLastName='" + secondLastName + '\'' +
+                ", firstNameCanBeNull=" + firstNameCanBeNull +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(firstName, person.firstName) &&
+                Objects.equals(lastName, person.lastName) &&
+                Objects.equals(secondLastName, person.secondLastName) &&
+                Objects.equals(firstNameCanBeNull, person.firstNameCanBeNull);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, secondLastName, firstNameCanBeNull);
+    }
 
     public String getFirstName() {
         return firstName;
@@ -39,4 +66,5 @@ public class Person {
     public void setSecondLastName(String secondLastName) {
         this.secondLastName = secondLastName;
     }
+
 }
