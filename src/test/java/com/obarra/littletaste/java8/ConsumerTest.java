@@ -1,8 +1,8 @@
 package com.obarra.littletaste.java8;
 
 import com.obarra.littletaste.Person;
-import org.junit.Assert;
-import org.junit.Test;
+import static  org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -26,8 +26,8 @@ public class ConsumerTest {
 
         mix.accept(person);
 
-        Assert.assertEquals("Omar", person.getSecondLastName());
-        Assert.assertEquals("Barra", person.getFirstName());
-        Assert.assertEquals("Barreto", person.getLastName());
+        assertEquals("Omar", person.getSecondLastName());
+        assertEquals("Barra", person.getFirstName());
+        assertEquals("Barreto", person.getLastName());
     }
 }

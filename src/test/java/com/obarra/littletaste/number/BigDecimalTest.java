@@ -1,11 +1,9 @@
 package com.obarra.littletaste.number;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static  org.junit.jupiter.api.Assertions.*;
 
 public class BigDecimalTest {
 
@@ -71,11 +69,11 @@ public class BigDecimalTest {
      * Expectation:
      * Should be throw a ArithmeticException
      */
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void divideWhenScaleIsInsufficientToRepresentTheResult() {
         BigDecimal dividend = new BigDecimal("1");
         BigDecimal divisor = new BigDecimal("3");
-        dividend.divide(divisor);
+        assertThrows(ArithmeticException.class, () -> dividend.divide(divisor));
     }
 
     /**
@@ -99,13 +97,12 @@ public class BigDecimalTest {
      * Expectation:
      * Should be throw a ArithmeticException
      */
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void divideWhenTheDivisorIsZero() {
         BigDecimal dividend = new BigDecimal("1");
         BigDecimal divisor = new BigDecimal("0");
-        dividend.divide(divisor, 2, BigDecimal.ROUND_HALF_UP);
+        assertThrows(ArithmeticException.class, () -> dividend.divide(divisor, 2, BigDecimal.ROUND_HALF_UP));
     }
-
     /**
      * Scenario:
      * When creating a BigDecimal from a Double value.
@@ -332,9 +329,9 @@ public class BigDecimalTest {
      * Expectation:
      * Should throw ArithmeticException.
      */
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void roundUnnecessaryWhenTheNumberHasDecimals(){
         BigDecimal number = new BigDecimal("2.5");
-        number.setScale(0, BigDecimal.ROUND_UNNECESSARY);
+        assertThrows(ArithmeticException.class, () -> number.setScale(0, BigDecimal.ROUND_UNNECESSARY));
     }
 }

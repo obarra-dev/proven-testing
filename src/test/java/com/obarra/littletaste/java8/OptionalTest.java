@@ -1,8 +1,8 @@
 package com.obarra.littletaste.java8;
 
 import com.obarra.littletaste.Person;
-import org.junit.Assert;
-import org.junit.Test;
+import static  org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
@@ -24,7 +24,7 @@ public class OptionalTest {
             greet = "I'm alone";
         }
 
-        Assert.assertEquals("Hi Omar", greet);
+        assertEquals("Hi Omar", greet);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class OptionalTest {
 
         String greet = optional.map(it -> "Hi " + it.getFirstName())
                 .orElse("I'm Alone");
-        Assert.assertEquals("Hi Omar", greet);
+        assertEquals("Hi Omar", greet);
     }
 
     /**
@@ -50,7 +50,7 @@ public class OptionalTest {
         String greet = optional.map(Person::getFirstName)
                 .map("Hi "::concat)
                 .orElse("I'm Alone");
-        Assert.assertEquals("Hi Omar", greet);
+        assertEquals("Hi Omar", greet);
     }
 
     /**
@@ -65,6 +65,6 @@ public class OptionalTest {
         String greet = optional.flatMap(Person::getFirstNameCanBeNull)
                 .map("Hi "::concat)
                 .orElse("I'm Alone");
-        Assert.assertEquals("Hi Omar", greet);
+        assertEquals("Hi Omar", greet);
     }
 }

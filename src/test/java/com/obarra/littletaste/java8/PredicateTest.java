@@ -1,8 +1,8 @@
 package com.obarra.littletaste.java8;
 
 import com.obarra.littletaste.Person;
-import org.junit.Assert;
-import org.junit.Test;
+import static  org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.BiPredicate;
 import java.util.function.Function;
@@ -15,6 +15,6 @@ public class PredicateTest {
     public void test(){
         Predicate<Person> doNotHaveSecondLastName = (person) -> person.getSecondLastName() == null;
         Person person = new Person();
-        Assert.assertTrue(doNotHaveSecondLastName.test(person));
+        assertTrue(doNotHaveSecondLastName.test(person));
     }
 }

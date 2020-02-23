@@ -2,25 +2,22 @@ package com.obarra.littletaste.java8.converter;
 
 import com.obarra.littletaste.Person;
 import com.obarra.littletaste.PersonDTO;
-import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.collection.IsCollectionWithSize;
-import org.hamcrest.collection.IsEmptyCollection;
-import org.hamcrest.collection.IsIterableContainingInAnyOrder;
-import org.hamcrest.collection.IsIterableContainingInOrder;
-import org.junit.Before;
-import org.junit.Test;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class PersonConverterTest {
 
     private PersonConverter personConverter;
 
-    @Before
+    @BeforeEach
     public void setUp(){
         personConverter = new PersonConverter();
     }
@@ -78,9 +75,9 @@ public class PersonConverterTest {
         expected.add(person);
 
         assertNotNull(result);
-        MatcherAssert.assertThat(result, IsCollectionWithSize.hasSize(2));
-        MatcherAssert.assertThat(result, CoreMatchers.not(IsEmptyCollection.empty()));
-        MatcherAssert.assertThat(result, IsIterableContainingInAnyOrder.containsInAnyOrder(result.toArray()));
-        MatcherAssert.assertThat(result, IsIterableContainingInOrder.contains(result.toArray()));
+        MatcherAssert.assertThat(result, Matchers.hasSize(2));
+        MatcherAssert.assertThat(result, Matchers.not(Matchers.empty()));
+        MatcherAssert.assertThat(result, Matchers.containsInAnyOrder(result.toArray()));
+        MatcherAssert.assertThat(result, Matchers.contains(result.toArray()));
     }
 }

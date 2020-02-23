@@ -2,7 +2,7 @@ package com.obarra.littletaste.collection;
 
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -34,7 +34,4 @@ public class Comparator {
         List<String> expectedName = Arrays.asList("Mariela", "Mar", "Omar", "Elena", "Helen");
         MatcherAssert.assertThat(expectedName, CoreMatchers.is(names));
     }
-
-
-
 }

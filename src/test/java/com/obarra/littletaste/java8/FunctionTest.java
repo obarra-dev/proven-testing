@@ -1,16 +1,11 @@
 package com.obarra.littletaste.java8;
 
 import com.obarra.littletaste.Person;
-import com.obarra.littletaste.java8.funtionalinterface.ArrayInitializer;
-import com.obarra.littletaste.java8.funtionalinterface.Constant;
-import com.obarra.littletaste.java8.funtionalinterface.Operator;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.Function;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FunctionTest {
 
@@ -31,8 +26,8 @@ public class FunctionTest {
 
         Person otherPerson = mix.apply(person);
 
-        Assert.assertEquals(person.getFirstName(), otherPerson.getSecondLastName());
-        Assert.assertEquals(person.getLastName(), otherPerson.getFirstName());
-        Assert.assertEquals(person.getSecondLastName(), otherPerson.getLastName());
+        assertEquals(person.getFirstName(), otherPerson.getSecondLastName());
+        assertEquals(person.getLastName(), otherPerson.getFirstName());
+        assertEquals(person.getSecondLastName(), otherPerson.getLastName());
     }
 }

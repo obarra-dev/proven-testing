@@ -1,13 +1,12 @@
 package com.obarra.littletaste.algorithm;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FibonacciTest {
 
@@ -15,7 +14,7 @@ public class FibonacciTest {
 
     private List<Integer> expected;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         seed = 10;
         expected = Arrays.asList(0, 1, 1, 2, 3, 5, 8, 13, 21, 34);
@@ -23,11 +22,11 @@ public class FibonacciTest {
 
     @Test
     public void generateByStream() {
-        Assert.assertEquals(expected, Fibonacci.generate(10));
+        assertEquals(expected, Fibonacci.generate(10));
     }
 
     @Test
     public void generate() {
-        Assert.assertEquals(expected, Fibonacci.generateByStream(10));
+        assertEquals(expected, Fibonacci.generateByStream(10));
     }
 }

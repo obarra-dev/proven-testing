@@ -1,7 +1,7 @@
 package com.obarra.littletaste.java8;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static  org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,11 +10,11 @@ import java.util.stream.Stream;
 
 public class StreamTest {
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void sortedAndReduceWhenStreamWasClosed(){
         Stream<String> strings = Stream.of("a", "c", "b", "e");
         strings.sorted();
-        strings.reduce("", String::concat);
+        assertThrows(IllegalStateException.class, () -> strings.reduce("", String::concat));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class StreamTest {
                 .sorted()
                 .reduce("", String::concat);
 
-        Assert.assertEquals("abce", strings);
+        assertEquals("abce", strings);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class StreamTest {
                 .sorted()
                 .forEach(stringBuilder::append);
 
-        Assert.assertEquals("abce", stringBuilder.toString());
+        assertEquals("abce", stringBuilder.toString());
     }
 
     /**
@@ -49,6 +49,6 @@ public class StreamTest {
                 .map(String::valueOf)
                 .collect(Collectors.joining(","));
 
-        Assert.assertEquals("1,2,3,4,5,6,7,8,9", joined);
+        assertEquals("1,2,3,4,5,6,7,8,9", joined);
     }
 }
