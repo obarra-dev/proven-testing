@@ -1,10 +1,11 @@
 package com.obarra.proventesting.collection;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Comparator {
 
@@ -14,7 +15,7 @@ public class Comparator {
         Collections.sort(names, java.util.Comparator.comparing(String::length));
 
         List<String> expectedName = Arrays.asList("Mar", "Omar", "Elena", "Helen", "Mariela");
-        MatcherAssert.assertThat(expectedName, CoreMatchers.is(names));
+        assertIterableEquals(expectedName, names);
     }
 
     @Test
@@ -23,7 +24,7 @@ public class Comparator {
         Collections.sort(names, (a , b) -> b.length() - a.length());
 
         List<String> expectedName = Arrays.asList("Mariela", "Elena", "Helen", "Omar", "Mar");
-        MatcherAssert.assertThat(expectedName, CoreMatchers.is(names));
+        assertIterableEquals(expectedName, names);
     }
 
     @Test
@@ -32,6 +33,6 @@ public class Comparator {
         Collections.sort(names, java.util.Comparator.comparing(String::hashCode));
 
         List<String> expectedName = Arrays.asList("Mariela", "Mar", "Omar", "Elena", "Helen");
-        MatcherAssert.assertThat(expectedName, CoreMatchers.is(names));
+        assertIterableEquals(expectedName, names);
     }
 }

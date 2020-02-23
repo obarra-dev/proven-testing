@@ -2,16 +2,13 @@ package com.obarra.proventesting.java8.converter;
 
 import com.obarra.proventesting.Person;
 import com.obarra.proventesting.PersonDTO;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonConverterTest {
 
@@ -75,9 +72,8 @@ public class PersonConverterTest {
         expected.add(person);
 
         assertNotNull(result);
-        MatcherAssert.assertThat(result, Matchers.hasSize(2));
-        MatcherAssert.assertThat(result, Matchers.not(Matchers.empty()));
-        MatcherAssert.assertThat(result, Matchers.containsInAnyOrder(result.toArray()));
-        MatcherAssert.assertThat(result, Matchers.contains(result.toArray()));
+        assertEquals(2, result.size());
+        assertFalse(result.isEmpty());
+        assertIterableEquals(expected, result);
     }
 }

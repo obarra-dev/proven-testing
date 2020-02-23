@@ -15,8 +15,6 @@ dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.0'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.0'
     testCompile group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.6.0'
-    testCompile group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
-
 
     compile group: 'org.antlr', name: 'stringtemplate', version: '4.0.2'
 }
