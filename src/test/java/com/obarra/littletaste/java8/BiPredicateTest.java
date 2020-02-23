@@ -1,8 +1,8 @@
 package com.obarra.littletaste.java8;
 
 import com.obarra.littletaste.Person;
-import org.junit.Assert;
-import org.junit.Test;
+import static  org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.BiPredicate;
 import java.util.function.Function;
@@ -20,6 +20,6 @@ public class BiPredicateTest {
 
         Person otherPerson = new Person();
         otherPerson.setLastName("Barra");
-        Assert.assertFalse(areRelatives.test(person, otherPerson));
+        assertFalse(areRelatives.test(person, otherPerson));
     }
 }

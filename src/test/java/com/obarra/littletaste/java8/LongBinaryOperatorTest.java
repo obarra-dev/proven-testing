@@ -1,8 +1,8 @@
 package com.obarra.littletaste.java8;
 
 import com.obarra.littletaste.Person;
-import org.junit.Assert;
-import org.junit.Test;
+import static  org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.BiPredicate;
 import java.util.function.Function;
@@ -14,7 +14,7 @@ public class LongBinaryOperatorTest {
     @Test
     public void applyAsLong(){
         LongBinaryOperator getMinor = (x, y) -> x > y?y:x;
-        Assert.assertEquals(-2, getMinor.applyAsLong(-2, 3));
-        Assert.assertEquals(5, getMinor.applyAsLong(10, 5));
+        assertEquals(-2, getMinor.applyAsLong(-2, 3));
+        assertEquals(5, getMinor.applyAsLong(10, 5));
     }
 }

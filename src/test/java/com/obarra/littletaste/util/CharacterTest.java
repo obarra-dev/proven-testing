@@ -1,27 +1,27 @@
 package com.obarra.littletaste.util;
 
 
-import org.junit.Assert;
-import org.junit.Test;
+import static  org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class CharacterTest {
     @Test
     public void isJavaIdentifierStartWhenChIsLeftParenthesis(){
-        Assert.assertFalse(Character.isJavaIdentifierStart('('));
+        assertFalse(Character.isJavaIdentifierStart('('));
     }
 
     @Test
     public void isJavaIdentifierStartWhenChIsDigit(){
-        Assert.assertFalse(Character.isJavaIdentifierStart('9'));
+        assertFalse(Character.isJavaIdentifierStart('9'));
     }
 
     @Test
     public void isJavaIdentifierStartWhenChIsLowLine(){
-        Assert.assertTrue(Character.isJavaIdentifierStart('_'));
+        assertTrue(Character.isJavaIdentifierStart('_'));
     }
 
     @Test
     public void isJavaIdentifierStartWhenChIsCurrencySymbol(){
-        Assert.assertTrue(Character.isJavaIdentifierStart('$'));
+        assertTrue(Character.isJavaIdentifierStart('$'));
     }
 }

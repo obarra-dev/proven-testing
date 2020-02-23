@@ -3,9 +3,9 @@ package com.obarra.littletaste.java8;
 import com.obarra.littletaste.java8.funtionalinterface.ArrayInitializer;
 import com.obarra.littletaste.java8.funtionalinterface.Constant;
 import com.obarra.littletaste.java8.funtionalinterface.Operator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static  org.junit.jupiter.api.Assertions.*;
 
 public class LambdaFactoryTest {
 
