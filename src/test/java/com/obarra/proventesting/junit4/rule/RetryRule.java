@@ -1,7 +1,6 @@
 package com.obarra.proventesting.junit4.rule;
 
 import org.junit.rules.TestRule;
-import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 

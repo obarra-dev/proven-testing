@@ -5,7 +5,6 @@ import static  org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class ConsumerTest {
 

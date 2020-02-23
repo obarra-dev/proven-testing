@@ -5,7 +5,6 @@ import com.obarra.proventesting.pattern.behavioral.strategy.algorithm.DebitAccou
 import com.obarra.proventesting.pattern.behavioral.strategy.algorithm.MercadoPagoStrategy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DemoStrategy {
