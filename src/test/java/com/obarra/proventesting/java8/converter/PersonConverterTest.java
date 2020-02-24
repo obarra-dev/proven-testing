@@ -71,9 +71,11 @@ public class PersonConverterTest {
         person.setSecondLastName("Cora");
         expected.add(person);
 
-        assertNotNull(result);
-        assertEquals(2, result.size());
-        assertFalse(result.isEmpty());
-        assertIterableEquals(expected, result);
+        assertAll(
+                ()-> assertNotNull(result) ,
+                ()-> assertEquals(2, result.size()),
+                ()-> assertFalse(result.isEmpty()),
+                ()-> assertIterableEquals(expected, result)
+        );
     }
 }
