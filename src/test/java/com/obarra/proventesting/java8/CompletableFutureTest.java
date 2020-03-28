@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CompletableFutureTest {
 
@@ -186,21 +188,43 @@ public class CompletableFutureTest {
 
                 Assertions.assertEquals("Supply", future.get());
             }
+
+            @Test
+            public void completeExceptionally() {
+                CompletableFuture<String> completableFuture = new CompletableFuture<>();
+                completableFuture.completeExceptionally( new RuntimeException("Error in complete"));
+                Assertions.assertThrows(ExecutionException.class, () -> {
+                    completableFuture.get();
+                });
+            }
         }
     }
 
     @Nested
-    class CombinededFuture {
+    class CombinationFuture {
 
         @Test
-        public void composeFuture () throws ExecutionException, InterruptedException {
+        public void thenComposeAsync() throws ExecutionException, InterruptedException {
             CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(CompletableFutureTest::supply);
             CompletableFuture<String> composeFuture = completableFuture
-                    .thenComposeAsync(s -> CompletableFuture.supplyAsync(()-> {
-                        return s.concat(" Other supply");
-                    }));
+                    .thenComposeAsync(s -> CompletableFuture.supplyAsync(()-> s.concat(" Other supply")));
 
             Assertions.assertEquals("Supply Other supply", composeFuture.get());
+        }
+
+        /**
+         * ThenApply is like map
+         * ThenCompose is like flatMap
+         * @throws ExecutionException
+         * @throws InterruptedException
+         */
+        @Test
+        public void differenceBetweenThenApplyAndThenCompose() throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<CompletableFuture<String>> composeFuture = completableFuture
+                    .thenApplyAsync(s -> CompletableFuture.supplyAsync(() -> s.concat(" Other supply")));
+
+            Assertions.assertEquals("Supply Other supply", composeFuture.get().get());
         }
 
         /**
@@ -221,6 +245,11 @@ public class CompletableFutureTest {
             Assertions.assertEquals("SupplySupply", composeFuture.get());
         }
 
+        /**
+         * Running multiple futures in parallel
+         * @throws ExecutionException
+         * @throws InterruptedException
+         */
         @Test
         public void allOf() throws ExecutionException, InterruptedException {
             CompletableFuture<String> completableFutureOne = CompletableFuture
@@ -235,8 +264,25 @@ public class CompletableFutureTest {
                     completableFutureTree);
             composeFuture.whenCompleteAsync((r, e) -> System.out.println(r));
             Assertions.assertNull(composeFuture.get());
+            Assertions.assertTrue(completableFutureOne.isDone());
+            Assertions.assertTrue(completableFutureTwo.isDone());
+            Assertions.assertTrue(completableFutureTree.isDone());
         }
 
+        @Test
+        public void joinToAllOfWithResult() throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFutureOne = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureTwo = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureTree = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+
+            String combinedValue = Stream.of(completableFutureOne, completableFutureTwo, completableFutureTree)
+                    .map(CompletableFuture::join)
+                    .collect(Collectors.joining(";"));
+            Assertions.assertEquals("Supply;Supply;Supply",combinedValue);
+        }
 
         @Test
         public void anyOf() throws ExecutionException, InterruptedException {

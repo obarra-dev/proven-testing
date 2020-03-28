@@ -1,9 +1,12 @@
 package com.obarra.proventesting.java8;
 
 import static  org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -34,6 +37,39 @@ public class StreamTest {
                 .forEach(stringBuilder::append);
 
         assertEquals("abce", stringBuilder.toString());
+    }
+
+    @Test
+    public void mapWhenHasNestedStructure(){
+        List<List<String>> list = Arrays.asList(Arrays.asList("a"),
+                Arrays.asList("b"),
+                Arrays.asList("c"));
+
+        List<Stream<String>> nestedStructure = list.stream()
+                .map(Collection::stream)
+                .collect(Collectors.toList());
+
+        List<String> noNestedStructure = nestedStructure.stream()
+                .map(s -> s.findAny().get())
+                .collect(Collectors.toList());
+
+        String[] expected = {"a", "b", "c"};
+        assertArrayEquals(expected, noNestedStructure.toArray());
+    }
+
+
+    @Test
+    public void flatMapWhenHasNestedStructure(){
+        List<List<String>> list = Arrays.asList(Arrays.asList("a"),
+                Arrays.asList("b"),
+                Arrays.asList("c"));
+
+        List<String> noNestedStructure = list.stream()
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+
+        String[] expected = {"a", "b", "c"};
+        assertArrayEquals(expected, noNestedStructure.toArray());
     }
 
     /**

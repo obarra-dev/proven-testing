@@ -39,7 +39,7 @@ public class OptionalTest {
     }
 
     /**
-     * Map solo se ejecuta si tiene elementos caso contratio devuelce otro Optional vacio
+     * Map solo se ejecuta si tiene elementos caso contrario devuelve otro Optional vacio
      */
     @Test
     public void mapAndOrElseWithReferenceMethods(){
@@ -53,11 +53,37 @@ public class OptionalTest {
         assertEquals("Hi Omar", greet);
     }
 
+    @Test
+    public void mapAndOrElseWithReferenceMethodsWhenFirstNameIsNull(){
+        Person person = new Person();
+        Optional<Person> optional = Optional.of(person);
+
+        String greet = optional.map(Person::getFirstName)
+                .map("Hi "::concat)
+                .orElse("I'm Alone");
+        assertEquals("I'm Alone", greet);
+    }
+
     /**
-     * Map solo se ejecuta si tiene elementos caso contratio devuelce otro Optional vacio
+     * Se necesita aplanar Optional<Optional<String>> a Optional<String> para lograrlo se deberia usar flatMap
      */
     @Test
-    public void flatMapAndOrElseWithReferenceMethods(){
+    public void mapAndOrElseWithReferenceMethodsWhenUsesOptionalFirstName(){
+        Person person = new Person();
+        person.setFirstNameCanBeNull(Optional.ofNullable("Omar"));
+        Optional<Person> optional = Optional.of(person);
+        Optional<Optional<String>> greet = optional.map(Person::getFirstNameCanBeNull);
+
+        Optional<Optional<String>> expected = Optional.of(Optional.of("Omar"));
+        assertEquals(expected, greet);
+    }
+
+
+    /**
+     * Map solo se ejecuta si tiene elementos caso contrario devuelve otro Optional vacio
+     */
+    @Test
+    public void flatMapAndOrElseWithReferenceMethodsWhenUsesOptionalFirstName(){
         Person person = new Person();
         person.setFirstNameCanBeNull(Optional.ofNullable("Omar"));
         Optional<Person> optional = Optional.of(person);
@@ -66,5 +92,17 @@ public class OptionalTest {
                 .map("Hi "::concat)
                 .orElse("I'm Alone");
         assertEquals("Hi Omar", greet);
+    }
+
+    /**
+     * Estudiar este caso. no existe alguna manera de trbajar con los optinals nullos?
+     */
+    @Test
+    public void flatMapAndOrElseWithReferenceMethodsWhenUsesOptionalFirstNameAndItIsNull(){
+        Person person = new Person();
+        Optional<Person> optional = Optional.of(person);
+
+        assertThrows(NullPointerException.class,
+                () -> optional.flatMap(Person::getFirstNameCanBeNull).orElse("I'm Alone"));
     }
 }
