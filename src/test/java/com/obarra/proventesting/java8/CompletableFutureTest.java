@@ -189,6 +189,151 @@ public class CompletableFutureTest {
         }
     }
 
+    @Nested
+    class CombinededFuture {
+
+        @Test
+        public void composeFuture () throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> composeFuture = completableFuture
+                    .thenComposeAsync(s -> CompletableFuture.supplyAsync(()-> {
+                        return s.concat(" Other supply");
+                    }));
+
+            Assertions.assertEquals("Supply Other supply", composeFuture.get());
+        }
+
+        /**
+         * Combine generates a new future
+         * @throws ExecutionException
+         * @throws InterruptedException
+         */
+        @Test
+        public void thenCombineAsync () throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFuture = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureOther = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+
+            CompletableFuture<String> composeFuture = completableFutureOther
+                    .thenCombineAsync(completableFuture, (a, b) -> a.concat(b));
+
+            Assertions.assertEquals("SupplySupply", composeFuture.get());
+        }
+
+        @Test
+        public void allOf() throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFutureOne = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureTwo = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureTree = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+
+            CompletableFuture<Void> composeFuture = CompletableFuture.allOf(completableFutureOne,
+                    completableFutureTwo,
+                    completableFutureTree);
+            composeFuture.whenCompleteAsync((r, e) -> System.out.println(r));
+            Assertions.assertNull(composeFuture.get());
+        }
+
+
+        @Test
+        public void anyOf() throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFutureOne = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureTwo = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureTree = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+
+            CompletableFuture<Object> composeFuture = CompletableFuture.anyOf(completableFutureOne,
+                    completableFutureTwo,
+                    completableFutureTree);
+
+
+            composeFuture.whenCompleteAsync((r, e) -> System.out.println(r));
+            Assertions.assertEquals("Supply", composeFuture.get());
+        }
+
+        /**
+         * This doesn't generate a new future
+         * @throws ExecutionException
+         * @throws InterruptedException
+         */
+        @Test
+        public void thenAcceptBothAsync () throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFuture = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureOther = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+
+            CompletableFuture<Void> composeFuture = completableFutureOther
+                    .thenAcceptBothAsync(completableFuture, (a, b) -> System.out.println(a+b));
+
+            Assertions.assertNull(composeFuture.get());
+        }
+
+        /**
+         * This doesn't generate a new future
+         * @throws ExecutionException
+         * @throws InterruptedException
+         */
+        @Test
+        public void runAfterBothAsync () throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFuture = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureOther = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+
+            CompletableFuture<Void> composeFuture = completableFutureOther
+                    .runAfterBothAsync(completableFuture, () -> System.out.println("Both finished"));
+
+            Assertions.assertNull(composeFuture.get());
+        }
+
+        @Test
+        public void acceptEitherAsync() throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFuture = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureOther = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+
+            CompletableFuture<Void> composeFuture = completableFutureOther
+                    .acceptEitherAsync(completableFuture, (s) -> System.out.println(s));
+
+            Assertions.assertNull(composeFuture.get());
+        }
+
+        @Test
+        public void runAfterEitherAsync() throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFuture = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureOther = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+
+            CompletableFuture<Void> composeFuture = completableFutureOther
+                    .runAfterEitherAsync(completableFuture, () -> System.out.println("Someone finished"));
+
+            Assertions.assertNull(composeFuture.get());
+        }
+
+        @Test
+        public void applyToEitherAsync() throws ExecutionException, InterruptedException {
+            CompletableFuture<String> completableFuture = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+            CompletableFuture<String> completableFutureOther = CompletableFuture
+                    .supplyAsync(CompletableFutureTest::supply);
+
+            CompletableFuture<String> composeFuture = completableFutureOther
+                    .applyToEitherAsync(completableFuture, (s) -> s.concat("finished"));
+
+            Assertions.assertEquals("Supplyfinished" , composeFuture.get());
+        }
+
+    }
+
+
     // se ejecuta en un hilo diferente, creo q todos
     @Test
     public void invokeAPITest() throws ExecutionException, InterruptedException {
