@@ -147,11 +147,11 @@ public class CompletableFutureTest {
                 });
 
                 //debe retornar un valor del mismo tipo que el futuro en el que se originó la excepción.
-                CompletableFuture<String> futureException = completableFuture
-                        .exceptionallyAsync(e -> "Handler: " + e.getMessage());
+                //CompletableFuture<String> futureException = completableFuture
+                     //   .exceptionallyAsync(e -> "Handler: " + e.getMessage());
 
-                Assertions.assertEquals("Handler: java.lang.RuntimeException: Error in the future",
-                        futureException.get());
+               // Assertions.assertEquals("Handler: java.lang.RuntimeException: Error in the future",
+                     //   futureException.get());
             }
 
 
