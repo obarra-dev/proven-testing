@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StupidCounterTest {
+class SynchronizedTest {
 
     /**
      * This tests a positive race condition. So, it sometime can be pass.
