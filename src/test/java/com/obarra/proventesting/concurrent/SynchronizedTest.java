@@ -16,7 +16,7 @@ class SynchronizedTest {
      * @throws Exception
      */
     @Test
-    void addWhenSynchronizedIsNotUsed() throws Exception {
+    void whenSynchronizedIsNotUsed() throws Exception {
         StupidCounter stupidCounter = new StupidCounter();
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         CountDownLatch countDownLatch = new CountDownLatch(1000);
@@ -34,7 +34,7 @@ class SynchronizedTest {
     }
 
     @Test
-    void addFirstCounterLevelInstanceMethod() throws Exception {
+    void whenLevelInstanceMethodIsUsed() throws Exception {
         StupidCounter stupidCounter = new StupidCounter();
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         CountDownLatch countDownLatch = new CountDownLatch(1000);
@@ -163,6 +163,64 @@ class SynchronizedTest {
 
         countDownLevelLatchLevelInstanceMethod.await();
         assertEquals(500, stupidCounter.getSecondCounter());
+        assertNotEquals(1000, stupidCounterOther.getFirstCounter());
+    }
+
+    @Test
+    void whenRunTwoMethodOfTheDifferentInstanceBothAreLevelStaticMethod() throws Exception {
+        StupidCounter stupidCounter = new StupidCounter();
+        ExecutorService executorServiceLevelStaticMethod = Executors.newFixedThreadPool(100);
+        CountDownLatch countDownLevelLatchLevelStaticMethod = new CountDownLatch(500);
+        IntStream.range(0, 500)
+                .forEach(index -> {
+                    executorServiceLevelStaticMethod.submit(() -> {
+                        stupidCounter.addFourthStaticCounterLevelStaticMethod();
+                        countDownLevelLatchLevelStaticMethod.countDown();
+                    });
+                });
+
+        StupidCounter stupidCounterOther = new StupidCounter();
+        ExecutorService executorServiceLevelStaticMethodOther = Executors.newFixedThreadPool(10);
+        CountDownLatch countDownLatchLevelStaticMethodOther = new CountDownLatch(1000);
+        IntStream.range(0, 1000)
+                .forEach(index -> {
+                    executorServiceLevelStaticMethodOther.submit(() -> {
+                        stupidCounterOther.addThirdStaticCounterLevelStaticMethod();
+                        countDownLatchLevelStaticMethodOther.countDown();
+                    });
+                });
+
+        countDownLevelLatchLevelStaticMethod.await();
+        assertEquals(500, stupidCounter.getFourthStaticCounter());
+        assertNotEquals(1000, stupidCounterOther.getThirdStaticCounter());
+    }
+
+    @Test
+    void whenRunTwoMethodOfTheDifferentInstanceOneIsLevelStaticMethodOtherIsLevelInstanceService() throws Exception {
+        StupidCounter stupidCounter = new StupidCounter();
+        ExecutorService executorServiceLevelStaticMethod = Executors.newFixedThreadPool(2);
+        CountDownLatch countDownLevelLatchLevelStaticMethod = new CountDownLatch(1000);
+        IntStream.range(0, 1000)
+                .forEach(index -> {
+                    executorServiceLevelStaticMethod.submit(() -> {
+                        stupidCounter.addFourthStaticCounterLevelStaticMethod();
+                        countDownLevelLatchLevelStaticMethod.countDown();
+                    });
+                });
+
+        StupidCounter stupidCounterOther = new StupidCounter();
+        ExecutorService executorServiceLevelInstanceMethodOther = Executors.newFixedThreadPool(10);
+        CountDownLatch countDownLatchLevelInstanceMethodOther = new CountDownLatch(1000);
+        IntStream.range(0, 1000)
+                .forEach(index -> {
+                    executorServiceLevelInstanceMethodOther.submit(() -> {
+                        stupidCounterOther.addFirstCounterLevelInstanceMethod();
+                        countDownLatchLevelInstanceMethodOther.countDown();
+                    });
+                });
+
+        countDownLevelLatchLevelStaticMethod.await();
+        assertEquals(1000, stupidCounter.getFourthStaticCounter());
         assertNotEquals(1000, stupidCounterOther.getFirstCounter());
     }
 }
