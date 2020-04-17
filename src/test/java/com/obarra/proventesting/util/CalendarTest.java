@@ -15,6 +15,13 @@ import static  org.junit.jupiter.api.Assertions.*;
  */
 public class CalendarTest {
 
+    /**
+     * getInstance return a new instance always, It is not singleton.
+     */
+    @Test
+    public void getInstance() {
+        assertNotSame(Calendar.getInstance(), Calendar.getInstance());
+    }
 
     @Test
     public void getMonthShouldBeAprilWithZeroIndexed() {

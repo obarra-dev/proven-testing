@@ -2,40 +2,51 @@ package com.obarra.proventesting.util;
 
 import org.junit.jupiter.api.Test;
 
+
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
 import static  org.junit.jupiter.api.Assertions.*;
+import static com.obarra.proventesting.util.DateUtil.*;
 
 public class DateUtilTest {
 
     @Test
-    public void getDateWithoutTime() {
+    public void getDateWithoutTimeWhenThereIsNotParams() {
         Date dateWithoutTime = DateUtil.getDateWithoutTime();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(dateWithoutTime);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        long MILLISECONDS_PER_DAY = 86400000L;
-        calendar.setTimeInMillis(dateWithoutTime.getTime() + MILLISECONDS_PER_DAY - 1);
-        assertEquals(day, calendar.get(Calendar.DAY_OF_MONTH));
-
-        calendar.setTimeInMillis(dateWithoutTime.getTime() + MILLISECONDS_PER_DAY);
-        assertNotEquals(day, calendar.get(Calendar.DAY_OF_MONTH));
+        assertNotEquals(
+                getDayOfMonth(addMilliseconds(dateWithoutTime,
+                        -1L)),
+                getDayOfMonth(dateWithoutTime));
+        assertEquals(
+                getDayOfMonth(addMilliseconds(dateWithoutTime,
+                        MILLISECONDS_PER_DAY -1)),
+                getDayOfMonth(dateWithoutTime));
     }
 
     @Test
-    public void testGetDateWithoutTime() {
-        Date dateWithoutTime = DateUtil.getDateWithoutTime(new Date());
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(dateWithoutTime);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
+    public void getDateWithoutTimeWhenThereIsParam() throws ParseException {
+        Date expected = convertStringToDate("04/04/1991", "dd/MM/yyyy");
 
-        long MILLISECONDS_PER_DAY = 86400000L;
-        calendar.setTimeInMillis(dateWithoutTime.getTime() + MILLISECONDS_PER_DAY - 1);
-        assertEquals(day, calendar.get(Calendar.DAY_OF_MONTH));
+        Date result = getDateWithoutTime(addMilliseconds(expected, MILLISECONDS_PER_DAY -1));
 
-        calendar.setTimeInMillis(dateWithoutTime.getTime() + MILLISECONDS_PER_DAY);
-        assertNotEquals(day, calendar.get(Calendar.DAY_OF_MONTH));
+        assertEquals(expected, result);
     }
+
+    //complete todo test
+    @Test
+    void convertDateToSQLDate() throws ParseException {
+        Date date = convertStringToDate("04-4-1991 06:07:59", "dd-M-yyyy hh:mm:ss");
+        java.sql.Date result = DateUtil.convertDateToSQLDate(date);
+
+        Date expected = convertStringToDate("04/04/1991", "dd/MM/yyyy");
+
+        assertEquals(expected, result);
+        System.out.println(result);
+
+    }
+
+
 }
