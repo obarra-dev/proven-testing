@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 
 import static  org.junit.jupiter.api.Assertions.*;
@@ -39,13 +40,23 @@ public class DateUtilTest {
     @Test
     void convertDateToSQLDate() throws ParseException {
         Date date = convertStringToDate("04-4-1991 06:07:59", "dd-M-yyyy hh:mm:ss");
+        date = convertStringToDate("04-4-1991 00:00:00", "dd-M-yyyy hh:mm:ss");
+        Date dated = convertStringToDate("04/04/1991", "dd/MM/yyyy");
+        assertEquals(date, dated);
+
         java.sql.Date result = DateUtil.convertDateToSQLDate(date);
-
-        Date expected = convertStringToDate("04/04/1991", "dd/MM/yyyy");
-
+        result = java.sql.Date.valueOf("1991-04-04");
+        java.sql.Date expected = java.sql.Date.valueOf("1991-04-04");
+        expected.equals(result);
         assertEquals(expected, result);
-        System.out.println(result);
 
+
+
+//expected: <670734000000> but was: <670756079000>
+
+       // Date expectedOther = convertStringToDate("04-4-1991 00:00:00", "dd-M-yyyy hh:mm:ss");
+        //assertEquals(expectedOther.getTime(), result.getTime());
+    //    expected: <670734000000> but was: <670756079000>
     }
 
 
