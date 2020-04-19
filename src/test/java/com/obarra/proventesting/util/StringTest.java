@@ -6,31 +6,44 @@ import org.junit.jupiter.api.Test;
 public class StringTest {
 
     @Test
-    public void xxxWhenAreTheSameInstance(){
+    public void stringLiteralShouldBeTheSameInstance(){
         String username = "obarra";
         String otherUsername = "obarra";
         assertSame(username, otherUsername);
+        assertEquals(username, otherUsername);
     }
 
     @Test
-    public void xdxxWhenAreTheSameInstance(){
+    public void stringLiteralShouldBeNotEqual(){
         String username = "obarra";
         String otherUsername = "obarra";
         assertEquals(username, otherUsername);
     }
 
     @Test
-    public void xdxxdWhenAreTheSameInstance(){
+    public void stringLiteralNewStringShouldBeDifferentInstance(){
         String username = "obarra";
         String otherUsername = new String("obarra");
         assertNotSame(username, otherUsername);
     }
 
     @Test
-    public void constructorWhen(){
+    public void stringLiteralNewStringShouldBeEqual(){
         String username = "obarra";
         String otherUsername = new String("obarra");
         assertEquals(username, otherUsername);
+    }
+
+    @Test
+    public void stringIntern(){
+        String username = "obarra";
+        String otherUsername = new String("obarra");
+        assertEquals(username, otherUsername);
+        assertNotSame(username, otherUsername);
+
+        String internStringUsername = otherUsername.intern();
+        assertEquals(username, internStringUsername);
+        assertSame(username, internStringUsername);
     }
 
     @Test
@@ -39,6 +52,7 @@ public class StringTest {
         char arrayUsername[]  =  {'o', 'b', 'a', 'r', 'r', 'a'};
         String username = new String(arrayUsername);
         assertEquals(expected, username);
+        assertNotSame(expected, username);
     }
 
     @Test
@@ -47,6 +61,7 @@ public class StringTest {
         byte[] arrayUsername = { 111, 98, 97, 114, 114, 97};
         String username = new String(arrayUsername);
         assertEquals(expected, username);
+        assertNotSame(expected, username);
     }
 
     @Test
