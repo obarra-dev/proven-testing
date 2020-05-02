@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -101,5 +103,40 @@ public class MapTest {
     public void computeIfPresent(){
         map1.computeIfPresent(2, (k, v) -> v.concat(k.toString()));
         Assertions.assertEquals("employee22", map1.get(2));
+    }
+
+    @Test
+    public void putWhenFailFast(){
+        Iterator<Integer> iterator = map1.keySet().iterator();
+        Assertions.assertThrows(ConcurrentModificationException.class,
+                () -> {
+                    while(iterator.hasNext()) {
+                        System.out.println(iterator.next());
+                        map1.put(7, "something");
+                    }
+                });
+    }
+
+    @Test
+    public void removeWhenFailFast() {
+        Iterator<Integer> iterator = map1.keySet().iterator();
+        Assertions.assertThrows(ConcurrentModificationException.class,
+                () -> {
+                    while (iterator.hasNext()) {
+                        System.out.println(iterator.next());
+                        map1.remove(2);
+                    }
+                });
+    }
+
+    @Test
+    public void removeWhenNotFailFast() {
+        Iterator<Integer> iterator = map1.keySet().iterator();
+        Assertions.assertDoesNotThrow(() -> {
+            while (iterator.hasNext()) {
+                System.out.println(iterator.next());
+                iterator.remove();
+            }
+        });
     }
 }
