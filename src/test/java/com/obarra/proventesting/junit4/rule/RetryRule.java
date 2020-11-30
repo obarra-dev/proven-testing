@@ -20,11 +20,11 @@ public class RetryRule implements TestRule {
             public void evaluate() throws Throwable {
                 Throwable throwable = null;
                 for (int i = 0; i < quantityIntent; i++) {
-                    try{
+                    try {
                         base.evaluate();
-                        System.out.println("It pass on intent: " + (i+1)  +" of total: "+quantityIntent);
+                        System.out.println("It pass on intent: " + (i + 1) + " of total: " + quantityIntent);
                         return;
-                    }catch (Throwable t){
+                    } catch (Throwable t) {
                         throwable = t;
                     }
                 }

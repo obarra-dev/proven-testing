@@ -1,20 +1,25 @@
 package com.obarra.proventesting.junit4;
 
 
-import org.junit.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 public class BeforeAfterTest {
 
     private static StringBuilder object;
 
     @BeforeClass
-    public static void beforeClass(){
+    public static void beforeClass() {
         Assert.assertNull(object);
         object = new StringBuilder();
     }
 
     @AfterClass
-    public static void afterClass(){
+    public static void afterClass() {
         clean();
         Assert.assertNull(object);
     }
@@ -24,13 +29,13 @@ public class BeforeAfterTest {
     }
 
     @Before
-    public void beforeMethod(){
+    public void beforeMethod() {
         object.append("I am at before method");
         Assert.assertNotNull(object);
     }
 
     @After
-    public void afterMethod(){
+    public void afterMethod() {
         Assert.assertNotNull(object);
 
         object.append(";I am at after method");
@@ -39,7 +44,7 @@ public class BeforeAfterTest {
     }
 
     @Test
-    public void test(){
+    public void test() {
         Assert.assertEquals("I am at before method", object.toString());
     }
 

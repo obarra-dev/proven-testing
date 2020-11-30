@@ -23,10 +23,10 @@ public class ParameterizedTest {
     }
 
     @Parameterized.Parameters
-    public static Iterable<Object[]> getData(){
-        return Arrays.asList( new Object[][]{{new BigDecimal("0.3"),
+    public static Iterable<Object[]> getData() {
+        return Arrays.asList(new Object[][]{{new BigDecimal("0.3"),
                 new BigDecimal("0.7"),
-                new BigDecimal("1.0")},{
+                new BigDecimal("1.0")}, {
                 new BigDecimal("1000.0"),
                 new BigDecimal("0.001"),
                 new BigDecimal("1000.001")

@@ -7,7 +7,6 @@ import org.junit.runners.Parameterized;
 import java.math.BigDecimal;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(value = Parameterized.class)
@@ -17,9 +16,9 @@ public class ParameterizedWithParameterTest {
     public BigDecimal value;
 
     @Parameterized.Parameters
-    public static Iterable<Object[]> getData(){
-        return Arrays.asList( new Object[][]{
-                {new BigDecimal("0.3")},{
+    public static Iterable<Object[]> getData() {
+        return Arrays.asList(new Object[][]{
+                {new BigDecimal("0.3")}, {
                 new BigDecimal("1000.001")
         }});
     }

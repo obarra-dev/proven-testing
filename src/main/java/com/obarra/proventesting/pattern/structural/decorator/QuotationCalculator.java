@@ -2,7 +2,7 @@ package com.obarra.proventesting.pattern.structural.decorator;
 
 import com.obarra.proventesting.pattern.structural.decorator.legacy.InsuranceCalculator;
 
-public class QuotationCalculator extends  CalculatorDecorator{
+public class QuotationCalculator extends CalculatorDecorator {
 
     public QuotationCalculator(InsuranceCalculator insuranceCalculator) {
         super(insuranceCalculator);
@@ -10,6 +10,6 @@ public class QuotationCalculator extends  CalculatorDecorator{
 
     @Override
     public double calculate(double value) {
-        return super.getInsuranceCalculator().calculate(value)*10;
+        return super.getInsuranceCalculator().calculate(value) * 10;
     }
 }

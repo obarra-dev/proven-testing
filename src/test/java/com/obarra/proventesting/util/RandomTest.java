@@ -9,7 +9,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RandomTest {
 
     /**
-     *
      * Instances of {@code java.util.Random} are threadsafe.
      * However, the concurrent use of the same {@code java.util.Random}
      * instance across threads may encounter contention and consequent
@@ -26,7 +25,6 @@ public class RandomTest {
      * Consider instead using
      * {@link java.util.concurrent.ThreadLocalRandom} in multithreaded
      * designs.
-     *
      */
     @Test
     void threadLocalRandom() {

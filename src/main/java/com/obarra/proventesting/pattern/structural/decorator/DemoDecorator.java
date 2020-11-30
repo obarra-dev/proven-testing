@@ -5,22 +5,22 @@ import com.obarra.proventesting.pattern.structural.decorator.legacy.InsuranceCal
 import com.obarra.proventesting.pattern.structural.decorator.legacy.VillanuevaCalculator;
 
 public class DemoDecorator {
-    public static double calculateQuotationOfAXA(double value){
+    public static double calculateQuotationOfAXA(double value) {
         InsuranceCalculator insuranceCalculator = new QuotationCalculator(new AXACalculator());
-        return  insuranceCalculator.calculate(value);
+        return insuranceCalculator.calculate(value);
     }
 
-    public static double calculateQuotationOfVillanueva(double value){
+    public static double calculateQuotationOfVillanueva(double value) {
         InsuranceCalculator insuranceCalculator = new QuotationCalculator(new VillanuevaCalculator());
-        return  insuranceCalculator.calculate(value);
+        return insuranceCalculator.calculate(value);
     }
 
-    public static double calculateMathReserveOfAXA(double value){
+    public static double calculateMathReserveOfAXA(double value) {
         InsuranceCalculator insuranceCalculator = new MathReserveCalculator(new AXACalculator());
-        return  insuranceCalculator.calculate(value);
+        return insuranceCalculator.calculate(value);
     }
 
-    public static double calculateMathReserveOfVillanueva(double value){
+    public static double calculateMathReserveOfVillanueva(double value) {
         InsuranceCalculator insuranceCalculator = new MathReserveCalculator(new VillanuevaCalculator());
         return insuranceCalculator.calculate(value);
     }

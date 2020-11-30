@@ -5,8 +5,8 @@ import org.junit.runners.Suite;
 
 @RunWith(value = Suite.class)
 @Suite.SuiteClasses({
-    BeforeAfterTest.class,
-    ParameterizedTest.class
+        BeforeAfterTest.class,
+        ParameterizedTest.class
 })
 public class SuitTestTest {
 }

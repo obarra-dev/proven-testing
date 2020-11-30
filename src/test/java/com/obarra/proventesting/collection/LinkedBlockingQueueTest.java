@@ -3,7 +3,6 @@ package com.obarra.proventesting.collection;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -15,7 +14,7 @@ public class LinkedBlockingQueueTest {
     void addWhenQueueWhitExplicitCapacityShouldBeHasBound() {
         BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue<>(2);
         blockingQueue.addAll(Arrays.asList(9, 2));
-        Assertions.assertThrows(IllegalStateException.class, ()-> blockingQueue.add(1));
+        Assertions.assertThrows(IllegalStateException.class, () -> blockingQueue.add(1));
     }
 
     @Test
@@ -27,7 +26,7 @@ public class LinkedBlockingQueueTest {
         //this test is only representative
         IntStream.range(0, 500)
                 .forEach(index -> blockingQueue.add(index));
-        Assertions.assertDoesNotThrow(() ->blockingQueue.add(1));
+        Assertions.assertDoesNotThrow(() -> blockingQueue.add(1));
     }
 
     @Test

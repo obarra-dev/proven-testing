@@ -2,17 +2,11 @@ package com.obarra.proventesting.util;
 
 import org.junit.jupiter.api.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ListTest {
@@ -23,22 +17,22 @@ public class ListTest {
         long start = System.currentTimeMillis();
         for (long i = 0; i < 100000L; i++) {
             longLinkedList.add(i);
-            if(i>5)longLinkedList.add(5, i);
+            if (i > 5) longLinkedList.add(5, i);
         }
         long end = System.currentTimeMillis();
         long timeOfLinkedList = end - start;
-        System.out.println(timeOfLinkedList +" LINKEDLIST");
+        System.out.println(timeOfLinkedList + " LINKEDLIST");
 
         List<Long> longArrayList = new ArrayList<>();
         start = System.currentTimeMillis();
         for (long i = 0; i < 100000L; i++) {
             longArrayList.add(i);
-            if(i>5)longArrayList.add(5, i);
+            if (i > 5) longArrayList.add(5, i);
         }
 
         end = System.currentTimeMillis();
         long timeOfArrayList = end - start;
-        System.out.println(timeOfArrayList +" ARRAYLIST");
+        System.out.println(timeOfArrayList + " ARRAYLIST");
         assertTrue(timeOfArrayList > timeOfLinkedList);
     }
 
@@ -51,7 +45,7 @@ public class ListTest {
         }
         long end = System.currentTimeMillis();
         long timeOfLinkedList = end - start;
-        System.out.println(timeOfLinkedList +" LINKEDLIST");
+        System.out.println(timeOfLinkedList + " LINKEDLIST");
 
         List<Long> longArrayList = new ArrayList<>();
         start = System.currentTimeMillis();
@@ -61,7 +55,7 @@ public class ListTest {
 
         end = System.currentTimeMillis();
         long timeOfArrayList = end - start;
-        System.out.println(timeOfArrayList +" ARRAYLIST");
+        System.out.println(timeOfArrayList + " ARRAYLIST");
         assertTrue(timeOfArrayList < timeOfLinkedList);
     }
 
@@ -72,20 +66,20 @@ public class ListTest {
             longLinkedList.add(i);
         }
         long start = System.currentTimeMillis();
-        for (Long number: longLinkedList);
+        for (Long number : longLinkedList) ;
         long end = System.currentTimeMillis();
         long timeOfLinkedList = end - start;
-        System.out.println(timeOfLinkedList +" LINKEDLIST");
+        System.out.println(timeOfLinkedList + " LINKEDLIST");
 
         List<Long> longArrayList = new ArrayList<>();
         for (long i = 0; i < 5000000L; i++) {
             longArrayList.add(i);
         }
         start = System.currentTimeMillis();
-        for (Long number: longArrayList);
+        for (Long number : longArrayList) ;
         end = System.currentTimeMillis();
         long timeOfArrayList = end - start;
-        System.out.println(timeOfArrayList +" ARRAYLIST");
+        System.out.println(timeOfArrayList + " ARRAYLIST");
         assertTrue(timeOfArrayList < timeOfLinkedList);
     }
 
@@ -99,7 +93,7 @@ public class ListTest {
         Collections.sort(longLinkedList);
         long end = System.currentTimeMillis();
         long timeOfLinkedList = end - start;
-        System.out.println(timeOfLinkedList +" LINKEDLIST");
+        System.out.println(timeOfLinkedList + " LINKEDLIST");
 
         List<Long> longArrayList = new ArrayList<>();
         for (long i = 0; i < 5000000L; i++) {
@@ -109,7 +103,7 @@ public class ListTest {
         Collections.sort(longArrayList);
         end = System.currentTimeMillis();
         long timeOfArrayList = end - start;
-        System.out.println(timeOfArrayList +" ARRAYLIST");
+        System.out.println(timeOfArrayList + " ARRAYLIST");
         assertTrue(timeOfArrayList < timeOfLinkedList);
     }
 
@@ -124,7 +118,7 @@ public class ListTest {
         Long aLong = longLinkedList.get(100000);
         long end = System.currentTimeMillis();
         long timeOfLinkedList = end - start;
-        System.out.println(timeOfLinkedList +" LINKEDLIST" +aLong);
+        System.out.println(timeOfLinkedList + " LINKEDLIST" + aLong);
 
         List<Long> longArrayList = new ArrayList<>();
         for (long i = 0; i < 5000000L; i++) {
@@ -134,7 +128,7 @@ public class ListTest {
         aLong = longArrayList.get(100000);
         end = System.currentTimeMillis();
         long timeOfArrayList = end - start;
-        System.out.println(timeOfArrayList +" ARRAYLIST"+aLong);
+        System.out.println(timeOfArrayList + " ARRAYLIST" + aLong);
         assertTrue(timeOfArrayList < timeOfLinkedList);
     }
 }

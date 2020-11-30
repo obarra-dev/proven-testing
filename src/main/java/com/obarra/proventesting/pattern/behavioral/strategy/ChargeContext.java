@@ -9,7 +9,7 @@ public class ChargeContext {
         this.chargeStrategy = chargeStrategy;
     }
 
-    public void charge(final double amount){
+    public void charge(final double amount) {
         chargeStrategy.charge(amount);
     }
 }

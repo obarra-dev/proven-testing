@@ -21,17 +21,16 @@ public class DemoStrategy {
         });
 
 
-
     }
 
     private static List<ChargeStrategy> getMethodOfCharge() {
         List<ChargeStrategy> chargeStrategies = new ArrayList<>();
         chargeStrategies.add(System.out::println);
         chargeStrategies.add(x -> {
-            System.out.println(x*2);
+            System.out.println(x * 2);
         });
         chargeStrategies.add(x -> {
-            System.out.println(x*5);
+            System.out.println(x * 5);
         });
 
         return chargeStrategies;

@@ -2,14 +2,16 @@ package com.obarra.proventesting.util;
 
 import org.junit.jupiter.api.Test;
 
-
 import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 
-import static  org.junit.jupiter.api.Assertions.*;
-import static com.obarra.proventesting.util.DateUtil.*;
+import static com.obarra.proventesting.util.DateUtil.MILLISECONDS_PER_DAY;
+import static com.obarra.proventesting.util.DateUtil.addMilliseconds;
+import static com.obarra.proventesting.util.DateUtil.convertStringToDate;
+import static com.obarra.proventesting.util.DateUtil.getDateWithoutTime;
+import static com.obarra.proventesting.util.DateUtil.getDayOfMonth;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class DateUtilTest {
 
@@ -23,7 +25,7 @@ public class DateUtilTest {
                 getDayOfMonth(dateWithoutTime));
         assertEquals(
                 getDayOfMonth(addMilliseconds(dateWithoutTime,
-                        MILLISECONDS_PER_DAY -1)),
+                        MILLISECONDS_PER_DAY - 1)),
                 getDayOfMonth(dateWithoutTime));
     }
 
@@ -31,7 +33,7 @@ public class DateUtilTest {
     public void getDateWithoutTimeWhenThereIsParam() throws ParseException {
         Date expected = convertStringToDate("04/04/1991", "dd/MM/yyyy");
 
-        Date result = getDateWithoutTime(addMilliseconds(expected, MILLISECONDS_PER_DAY -1));
+        Date result = getDateWithoutTime(addMilliseconds(expected, MILLISECONDS_PER_DAY - 1));
 
         assertEquals(expected, result);
     }
@@ -51,12 +53,11 @@ public class DateUtilTest {
         assertEquals(expected, result);
 
 
-
 //expected: <670734000000> but was: <670756079000>
 
-       // Date expectedOther = convertStringToDate("04-4-1991 00:00:00", "dd-M-yyyy hh:mm:ss");
+        // Date expectedOther = convertStringToDate("04-4-1991 00:00:00", "dd-M-yyyy hh:mm:ss");
         //assertEquals(expectedOther.getTime(), result.getTime());
-    //    expected: <670734000000> but was: <670756079000>
+        //    expected: <670734000000> but was: <670756079000>
     }
 
 

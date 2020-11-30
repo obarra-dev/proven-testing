@@ -11,23 +11,23 @@ public class StupidCounter {
         firstCounter = firstCounter + 1;
     }
 
-    public synchronized void addFirstCounterLevelInstanceMethod()  {
+    public synchronized void addFirstCounterLevelInstanceMethod() {
         try {
             Thread.sleep(100L);
             System.out.println("addFirstCounterLevelInstanceMethod " + firstCounter);
             firstCounter = firstCounter + 1;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void addFirstCounterLevelBlockCode()  {
+    public void addFirstCounterLevelBlockCode() {
         synchronized (this) {
             try {
                 Thread.sleep(100L);
                 System.out.println("addFirstCounterLevelBlockCode " + firstCounter);
                 firstCounter = firstCounter + 1;
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -40,7 +40,7 @@ public class StupidCounter {
 
     public void addSecondCounterLevelBlockCode() {
         synchronized (this) {
-            System.out.println("addSecondCounterLevelInstanceMethod "+ secondCounter);
+            System.out.println("addSecondCounterLevelInstanceMethod " + secondCounter);
             secondCounter = secondCounter + 1;
         }
     }
@@ -48,15 +48,15 @@ public class StupidCounter {
     public synchronized static void addThirdStaticCounterLevelStaticMethod() {
         try {
             Thread.sleep(100L);
-            System.out.println("addThirdStaticCounterLevelStaticMethod " +thirdStaticCounter);
+            System.out.println("addThirdStaticCounterLevelStaticMethod " + thirdStaticCounter);
             thirdStaticCounter = thirdStaticCounter + 1;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public synchronized static void addFourthStaticCounterLevelStaticMethod() {
-        System.out.println("addFourthStaticCounterLevelStaticMethod " +fourthStaticCounter);
+        System.out.println("addFourthStaticCounterLevelStaticMethod " + fourthStaticCounter);
         fourthStaticCounter = fourthStaticCounter + 1;
     }
 

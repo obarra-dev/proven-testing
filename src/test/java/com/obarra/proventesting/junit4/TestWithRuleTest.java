@@ -15,7 +15,7 @@ public class TestWithRuleTest {
     public MonitorRule monitorRule = new MonitorRule();
 
     @Test
-    public void dummyTest(){
+    public void dummyTest() {
         Assert.assertNotNull(new Object());
     }
 }

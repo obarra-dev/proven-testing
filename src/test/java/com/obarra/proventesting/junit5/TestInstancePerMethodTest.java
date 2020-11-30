@@ -1,10 +1,15 @@
 package com.obarra.proventesting.junit5;
 
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 /**
  * Junit5 creates a new class instance for every test run, for every method
+ *
  * @BeforeAll and @AfterAll must be static
  * This is the default TestInstance, @TestInstance(TestInstance.Lifecycle.PER_METHOD)
  */
@@ -14,31 +19,31 @@ public class TestInstancePerMethodTest {
     Integer variable = 1;
 
     @BeforeAll
-    static void beforeAll(){
+    static void beforeAll() {
         System.out.println("BeforeAll is executed before of instance de test so it can not access to variables");
     }
 
     @AfterAll
-    static void afterAll(){
+    static void afterAll() {
         System.out.println("AfterAll is executed after of instance de test so it can not access to variables");
     }
 
     @Test
-    void testOne(){
+    void testOne() {
         Assertions.assertEquals(1, variable);
         variable++;
         Assertions.assertEquals(2, variable);
     }
 
     @Test
-    void testTwo(){
+    void testTwo() {
         Assertions.assertEquals(1, variable);
         variable = null;
         Assertions.assertNull(variable);
     }
 
     @Test
-    void testThree(){
+    void testThree() {
         Assertions.assertNotNull(variable);
     }
 }

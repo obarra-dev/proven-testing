@@ -4,8 +4,12 @@ package com.obarra.proventesting.number;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
 import java.math.BigDecimal;
-import static  org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("Test to BigDecimal")
 public class BigDecimalTest {
@@ -36,7 +40,7 @@ public class BigDecimalTest {
 
     @Nested
     @DisplayName("Test add method")
-    class AddTest{
+    class AddTest {
 
         /**
          * Scenario:
@@ -71,7 +75,7 @@ public class BigDecimalTest {
 
     @Nested
     @DisplayName("test divide method")
-    class DivideTest{
+    class DivideTest {
         /**
          * Scenario:
          * When the scale is insufficient to represent the result (1/3 = 0.3333333.....) and the round mode is UNNECESSARY
@@ -116,7 +120,7 @@ public class BigDecimalTest {
 
     @Nested
     @DisplayName("Test constructor BigDecimal")
-    class ConstructorClass{
+    class ConstructorClass {
         /**
          * Scenario:
          * When creating a BigDecimal from a Double value.
@@ -124,9 +128,9 @@ public class BigDecimalTest {
          * Should not hold the exact precision, this constructor can be somewhat unpredictable.
          */
         @Test
-        public void bigDecimalWhenCreatesFromDoubleShouldNotHoldTheExactPrecision(){
+        public void bigDecimalWhenCreatesFromDoubleShouldNotHoldTheExactPrecision() {
             BigDecimal number = new BigDecimal(0.33);
-            assertNotEquals( "0.33", number.toString());
+            assertNotEquals("0.33", number.toString());
         }
 
         /**
@@ -136,14 +140,14 @@ public class BigDecimalTest {
          * Should hold the exact precision, it is good idea.
          */
         @Test
-        public void bigDecimalWhenCreatesFromStringShouldHoldTheExactPrecision(){
+        public void bigDecimalWhenCreatesFromStringShouldHoldTheExactPrecision() {
             BigDecimal number = new BigDecimal("0.33");
             assertEquals("0.33", number.toString());
         }
     }
 
     @Nested
-    class RoundTest{
+    class RoundTest {
 
         /**
          * Scenario:
@@ -152,7 +156,7 @@ public class BigDecimalTest {
          * Should round towards positive infinity.
          */
         @Test
-        public void roundCeilingWhenNumberIsPositive(){
+        public void roundCeilingWhenNumberIsPositive() {
             BigDecimal number = new BigDecimal("0.333");
             BigDecimal result = number.setScale(2, BigDecimal.ROUND_CEILING);
             BigDecimal expectedResult = new BigDecimal("0.34");
@@ -166,7 +170,7 @@ public class BigDecimalTest {
          * Should round towards positive infinity.
          */
         @Test
-        public void roundCeilingWhenNumberIsNegative(){
+        public void roundCeilingWhenNumberIsNegative() {
             BigDecimal number = new BigDecimal("-0.333");
             BigDecimal result = number.setScale(2, BigDecimal.ROUND_CEILING);
             BigDecimal expectedResult = new BigDecimal("-0.33");
@@ -180,7 +184,7 @@ public class BigDecimalTest {
          * Should round towards negative infinity.
          */
         @Test
-        public void roundFloorWhenTheNumberIsPositive(){
+        public void roundFloorWhenTheNumberIsPositive() {
             BigDecimal number = new BigDecimal("0.333");
             BigDecimal result = number.setScale(2, BigDecimal.ROUND_FLOOR);
             BigDecimal expectedResult = new BigDecimal("0.33");
@@ -194,7 +198,7 @@ public class BigDecimalTest {
          * Should round towards negative infinity.
          */
         @Test
-        public void roundFloorWhenTheNumberIsNegative(){
+        public void roundFloorWhenTheNumberIsNegative() {
             BigDecimal number = new BigDecimal("-0.333");
             BigDecimal result = number.setScale(2, BigDecimal.ROUND_FLOOR);
             BigDecimal expectedResult = new BigDecimal("-0.34");
@@ -208,7 +212,7 @@ public class BigDecimalTest {
          * Should round towards zero.
          */
         @Test
-        public void roundDownWhenTheNumberISPositive(){
+        public void roundDownWhenTheNumberISPositive() {
             BigDecimal number = new BigDecimal("0.333");
             BigDecimal result = number.setScale(2, BigDecimal.ROUND_DOWN);
             BigDecimal expectedResult = new BigDecimal("0.33");
@@ -222,7 +226,7 @@ public class BigDecimalTest {
          * Should round towards zero.
          */
         @Test
-        public void roundDownWhenTheNumberIsNegative(){
+        public void roundDownWhenTheNumberIsNegative() {
             BigDecimal number = new BigDecimal("-0.333");
             BigDecimal result = number.setScale(2, BigDecimal.ROUND_DOWN);
             BigDecimal expectedResult = new BigDecimal("-0.33");
@@ -237,7 +241,7 @@ public class BigDecimalTest {
          * Should round away from zero.
          */
         @Test
-        public void roundUpWhenTheNumberIsPositive(){
+        public void roundUpWhenTheNumberIsPositive() {
             BigDecimal number = new BigDecimal("0.333");
             BigDecimal result = number.setScale(2, BigDecimal.ROUND_UP);
             BigDecimal expectedResult = new BigDecimal("0.34");
@@ -251,7 +255,7 @@ public class BigDecimalTest {
          * Should round away from zero.
          */
         @Test
-        public void roundDownTowardsZeroNegative(){
+        public void roundDownTowardsZeroNegative() {
             BigDecimal number = new BigDecimal("-0.333");
             BigDecimal result = number.setScale(2, BigDecimal.ROUND_UP);
             BigDecimal expectedResult = new BigDecimal("-0.34");
@@ -260,7 +264,7 @@ public class BigDecimalTest {
 
         @Nested
         @DisplayName("Test Round Half")
-        class RoundHalfTest{
+        class RoundHalfTest {
             /**
              * Scenario:
              * When uses rounding mode ROUND_HALF_UP and the last decimal is greater or equals than 5.
@@ -268,7 +272,7 @@ public class BigDecimalTest {
              * Should round away from zero
              */
             @Test
-            public void roundHalfUpWhenTheLastDecimalIsFive(){
+            public void roundHalfUpWhenTheLastDecimalIsFive() {
                 BigDecimal number = new BigDecimal("0.745");
                 BigDecimal result = number.setScale(2, BigDecimal.ROUND_HALF_UP);
                 BigDecimal expectedResult = new BigDecimal("0.75");
@@ -282,7 +286,7 @@ public class BigDecimalTest {
              * Should round towards nearest neighbor
              */
             @Test
-            public void roundHalfUpWhenTheLastDecimalIsFour(){
+            public void roundHalfUpWhenTheLastDecimalIsFour() {
                 BigDecimal number = new BigDecimal("0.744");
                 BigDecimal result = number.setScale(2, BigDecimal.ROUND_HALF_UP);
                 BigDecimal expectedResult = new BigDecimal("0.74");
@@ -296,7 +300,7 @@ public class BigDecimalTest {
              * Should round towards zero
              */
             @Test
-            public void roundHalfDownWhenTheLastDecimalIsFive(){
+            public void roundHalfDownWhenTheLastDecimalIsFive() {
                 BigDecimal number = new BigDecimal("0.745");
                 BigDecimal result = number.setScale(2, BigDecimal.ROUND_HALF_DOWN);
                 BigDecimal expectedResult = new BigDecimal("0.74");
@@ -310,7 +314,7 @@ public class BigDecimalTest {
              * Should round towards nearest neighbor
              */
             @Test
-            public void roundHalfDownWhenTheLastDecimalIsFour(){
+            public void roundHalfDownWhenTheLastDecimalIsFour() {
                 BigDecimal number = new BigDecimal("0.746");
                 BigDecimal result = number.setScale(2, BigDecimal.ROUND_HALF_DOWN);
                 BigDecimal expectedResult = new BigDecimal("0.75");
@@ -324,7 +328,7 @@ public class BigDecimalTest {
              * Should round down
              */
             @Test
-            public void roundHalfEvenWhenDigitLeftIsEven(){
+            public void roundHalfEvenWhenDigitLeftIsEven() {
                 BigDecimal number = new BigDecimal("1.5");
                 BigDecimal result = number.setScale(0, BigDecimal.ROUND_HALF_EVEN);
                 BigDecimal expectedResult = new BigDecimal("2");
@@ -338,7 +342,7 @@ public class BigDecimalTest {
              * Should round up
              */
             @Test
-            public void roundHalfEvenWhenDigitLeftIsOdd(){
+            public void roundHalfEvenWhenDigitLeftIsOdd() {
                 BigDecimal number = new BigDecimal("2.5");
                 BigDecimal result = number.setScale(0, BigDecimal.ROUND_HALF_EVEN);
                 BigDecimal expectedResult = new BigDecimal("2");
@@ -354,7 +358,7 @@ public class BigDecimalTest {
          * Should throw ArithmeticException.
          */
         @Test
-        public void roundUnnecessaryWhenTheNumberHasDecimals(){
+        public void roundUnnecessaryWhenTheNumberHasDecimals() {
             BigDecimal number = new BigDecimal("2.5");
             assertThrows(ArithmeticException.class, () -> number.setScale(0, BigDecimal.ROUND_UNNECESSARY));
         }

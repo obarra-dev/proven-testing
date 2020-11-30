@@ -16,7 +16,7 @@ public class DateUtil {
      * This method returns a full current date with the time set to zero,
      * but we can't ignore the time. Use Calendar
      */
-    public static Date getDateWithoutTime(){
+    public static Date getDateWithoutTime() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE, 0);
@@ -25,7 +25,7 @@ public class DateUtil {
         return calendar.getTime();
     }
 
-    public static Date getDateWithoutTime(final Date date){
+    public static Date getDateWithoutTime(final Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.set(Calendar.HOUR_OF_DAY, 0);
@@ -35,7 +35,7 @@ public class DateUtil {
         return calendar.getTime();
     }
 
-    public static java.sql.Date convertDateToSQLDate(final Date date){
+    public static java.sql.Date convertDateToSQLDate(final Date date) {
         return new java.sql.Date(date.getTime());
     }
 

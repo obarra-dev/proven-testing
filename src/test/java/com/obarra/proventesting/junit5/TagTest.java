@@ -8,6 +8,6 @@ public class TagTest {
 
     @Test
     @Tag("IT")
-    void integrationTest(){
+    void integrationTest() {
     }
 }

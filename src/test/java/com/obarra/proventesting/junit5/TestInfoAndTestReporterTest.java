@@ -11,14 +11,14 @@ public class TestInfoAndTestReporterTest {
     TestReporter testReporter;
 
     @BeforeEach
-    void setUp(TestInfo testInfo, TestReporter testReporter){
+    void setUp(TestInfo testInfo, TestReporter testReporter) {
         this.testInfo = testInfo;
         this.testReporter = testReporter;
-        this.testReporter.publishEntry("Running "+this.testInfo.getDisplayName() + " with tag "+ this.testInfo.getTags());
+        this.testReporter.publishEntry("Running " + this.testInfo.getDisplayName() + " with tag " + this.testInfo.getTags());
     }
 
     @Test
-    void test(){
+    void test() {
 
     }
 }

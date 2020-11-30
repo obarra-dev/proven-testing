@@ -4,14 +4,16 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
 
-import static  org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FieldUtilTest {
     private long fieldLong = 899L;
     private long otherFieldLong = 99L;
     private String fieldString = " ELENaMArieLA    ";
     private String otherFieldString = "        ";
-    
 
 
     @Test

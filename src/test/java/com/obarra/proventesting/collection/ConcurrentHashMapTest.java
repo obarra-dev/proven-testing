@@ -6,14 +6,11 @@ import org.junit.jupiter.api.Test;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Collections;
-import java.util.ConcurrentModificationException;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadLocalRandom;
@@ -55,12 +52,12 @@ public class ConcurrentHashMapTest {
 
         Iterator<Integer> iterator = map1.keySet().iterator();
 
-        Assertions.assertDoesNotThrow( () -> {
-                    while (iterator.hasNext()) {
-                        System.out.println(iterator.next());
-                        map1.remove(2);
-                    }
-                });
+        Assertions.assertDoesNotThrow(() -> {
+            while (iterator.hasNext()) {
+                System.out.println(iterator.next());
+                map1.remove(2);
+            }
+        });
     }
 
     @Test

@@ -7,12 +7,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class SynchronizedTest {
 
     /**
      * This tests a positive race condition. So, it sometime can be pass.
+     *
      * @throws Exception
      */
     @Test
